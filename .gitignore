@@ -1,0 +1,6 @@
+
+# the "Course Notes" folder is ignored
+/courseNotesAndSnapshots/*
+
+# the "Jupyter Notebooks" folder is ignored
+/jupyterNotebooks/*
