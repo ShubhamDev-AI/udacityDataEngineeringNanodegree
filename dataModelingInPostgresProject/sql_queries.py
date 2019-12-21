@@ -36,11 +36,11 @@ songplay_table_create = """
     CREATE TABLE
         public.fact_songplays(
              songplay_id SERIAL PRIMARY KEY
-            ,start_time TIMESTAMPTZ REFERENCES public.dim_time(start_time)
-            ,user_id INTEGER REFERENCES public.dim_users(user_id)
+            ,start_time TIMESTAMPTZ --REFERENCES public.dim_time(start_time)
+            ,user_id INTEGER --REFERENCES public.dim_users(user_id)
             ,level TEXT NOT NULL
-            ,song_id TEXT REFERENCES public.dim_songs(song_id)
-            ,artist_id TEXT REFERENCES public.dim_artists(artist_id)
+            ,song_id TEXT --REFERENCES public.dim_songs(song_id)
+            ,artist_id TEXT --REFERENCES public.dim_artists(artist_id)
         )
     ;
 """
@@ -113,7 +113,8 @@ songplay_table_insert = """
         ,%s
         ,%s
         ,%s
-    );
+    )
+    ;
 """
 
 user_table_insert = """
@@ -132,7 +133,14 @@ user_table_insert = """
         ,%s
         ,%s
         ,%s
-    );
+    )
+    
+    ON CONFLICT
+        (user_id)
+        
+    DO UPDATE
+        SET level = dim_users.level
+    ;
 """
 
 song_table_insert = """
@@ -152,7 +160,14 @@ song_table_insert = """
             ,%s
             ,%s
             ,%s
-        );
+        )
+    
+    ON CONFLICT(
+        song_id
+    )
+    
+    DO NOTHING    
+    ;
 """
 
 artist_table_insert = """
@@ -171,7 +186,14 @@ artist_table_insert = """
         ,%s
         ,%s
         ,%s
-    );
+    )
+    
+    ON CONFLICT(
+        artist_id
+    )
+        
+    DO NOTHING
+    ;
 """
 
 
@@ -195,7 +217,13 @@ time_table_insert = """
         ,%s
         ,%s
         ,%s
-    );
+    )
+    
+    ON CONFLICT
+        (start_time)
+        
+    DO NOTHING    
+    ;
 """
 
 # FIND SONGS

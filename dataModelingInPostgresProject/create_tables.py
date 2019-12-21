@@ -1,21 +1,10 @@
 import psycopg2
-import os
 from sql_queries import create_table_queries, drop_table_queries
 
-user = os.environ["POSTGRES_USER"] # UDACITY ORIGINAL: student
-password = os.environ["POSTGRES_PASSWORD"] # UDACITY ORIGINAL: student
-host = '127.0.0.1' # UDACITY ORIGINAL: 127.0.0.1
-dbname = 'postgres' # UDACITY ORIGINAL: studentdb
 
 def create_database():
     # connect to default database
-    conn = psycopg2.connect(
-         host=host
-        ,dbname=dbname
-        ,user=user
-        ,password=password
-    )
-
+    conn = psycopg2.connect("host=127.0.0.1 dbname=studentdb user=student password=student")
     conn.set_session(autocommit=True)
     cur = conn.cursor()
     
@@ -27,12 +16,7 @@ def create_database():
     conn.close()    
     
     # connect to sparkify database
-    conn = psycopg2.connect(
-         host=host
-        ,dbname='sparkifydb'
-        ,user=user
-        ,password=password
-    )
+    conn = psycopg2.connect("host=127.0.0.1 dbname=sparkifydb user=student password=student")
     cur = conn.cursor()
     
     return cur, conn

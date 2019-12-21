@@ -24,8 +24,7 @@ def process_song_file(cur, filepath):
     integer_cols = ['year']
 
     string_attribute_cols = [
-         'artist_id'
-        ,'artist_location'
+         'artist_location'
         ,'artist_name'
         ,'song_id'
         ,'title'
@@ -44,43 +43,104 @@ def process_song_file(cur, filepath):
     df['year'] = df['year'].fillna(value=INTEGER_COLS_DEFAULT_VALUE)
 
     # insert song record
-    song_data = df[['song_id','title','artist_id','year','duration']].astype(object).values.to_list()
+    song_data = list(df[['song_id','title','artist_id','year','duration']].values[0])
     cur.execute(song_table_insert, song_data)
     
     # insert artist record
-    artist_data = df[['artist_id','artist_name','artist_location','artist_latitude','artist_longitude']] \
-        .astype(object) \
-        .values \
-        .to_list()
+    artist_data = list(df[['artist_id','artist_name','artist_location','artist_latitude','artist_longitude']].iloc[0].values)
         
     cur.execute(artist_table_insert, artist_data)
 
 
 def process_log_file(cur, filepath):
     # open log file
-    df = 
+    df = pd.read_json(
+         filepath
+        ,lines=True
+     )
+    
+    log_string_attributes = [ 'artist'
+                             ,'auth'
+                             ,'firstName'
+                             ,'gender'
+                             ,'lastName'
+                             ,'level'
+                             ,'location'
+                             ,'method'
+                             ,'page'
+                             ,'song'
+                             ,'userAgent'
+                             ,'userId'
+                            ]
+
+    log_float_attributes = [ 'length'
+                            ,'registration'
+                           ]
+
+    log_int_attributes = [ 'itemInSession'
+                          ,'sessionId'
+                          ,'status'
+                          ,'ts'
+                         ]
+    
+    # boolean indexing is used to filter "NextSong" events
+    next_song_criteria = df['page'] == 'NextSong'
 
     # filter by NextSong action
-    df = 
+    df = df.loc[next_song_criteria]
 
     # convert timestamp column to datetime
-    t = 
+    df['ts'] = pd.to_datetime(df['ts'],unit='ms')
     
     # insert time data records
-    time_data = 
-    column_labels = 
-    time_df = 
+    time_data = []
+    
+    time_data.append(df['ts'].dt.strftime('%Y%m%d %H:%M:%S.%f').values[0])
+
+    time_data.append(df['ts'].dt.day.values[0])
+
+    time_data.append(df['ts'].dt.hour.values[0])
+
+    time_data.append(df['ts'].dt.week.values[0])
+
+    time_data.append(df['ts'].dt.month.values[0])
+
+    time_data.append(df['ts'].dt.year.values[0])
+
+    time_data.append(df['ts'].dt.weekday_name.values[0])
+    
+    column_labels = [ 'start_time'
+                     ,'hour'
+                     ,'day'
+                     ,'week'
+                     ,'month'
+                     ,'year'
+                     ,'weekday'
+                    ]
+    
+    time_df = pd.DataFrame( data=[time_data]
+                           ,columns=column_labels
+                          )
 
     for i, row in time_df.iterrows():
         cur.execute(time_table_insert, list(row))
 
+    
     # load user table
-    user_df = 
+    target_user_attributes = [ 'userId'
+                              ,'firstName'
+                              ,'lastName'
+                              ,'gender'
+                              ,'level'
+                             ]
+
+    user_df = df.loc[:,target_user_attributes]
 
     # insert user records
     for i, row in user_df.iterrows():
         cur.execute(user_table_insert, row)
 
+    
     # insert songplay records
     for index, row in df.iterrows():
         
@@ -89,8 +149,14 @@ def process_log_file(cur, filepath):
         songid, artistid = results if results else None, None
 
         # insert songplay record
-        songplay_data = 
-        cur.execute(songplay_table_insert, songplay_data)
+        try:
+            songplay_data = (row.ts, row.userId, row.level, songid, artistid)
+            cur.execute(songplay_table_insert, songplay_data)
+            
+        except psycopg2.Error as error:
+            print("Couldn't insert data")
+            print(error)
+            conn.rollback()
 
 
 def process_data(cur, conn, filepath, func):
