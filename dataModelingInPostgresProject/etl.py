@@ -6,7 +6,8 @@ from sql_queries import *
 
 FLOAT_COLS_DEFAULT_VALUE = 9999999.99
 STRING_COLS_DEFAULT_VALUE = 'Unknown'
-INTEGER_COLS_DEFAULT_VALUE = 9999
+SMALLINT_COLS_DEFAULT_VALUE = 9999
+INTEGER_COLS_DEFAULT_VALUE = 9999999
 
 def process_song_file(cur, filepath):
     # open song file
@@ -15,32 +16,34 @@ def process_song_file(cur, filepath):
         ,lines=True
     )
 
-    float_cols = [ 
+    song_float_attributes = [ 
          'artist_latitude'
         ,'artist_longitude'
         ,'duration'
     ]
 
-    integer_cols = ['year']
+    song_integer_attributes = ['year']
 
-    string_attribute_cols = [
+    song_string_attributes = [
          'artist_location'
         ,'artist_name'
         ,'song_id'
         ,'title'
     ]
 
+    
     # default values are set for:
     #  missing data in float type columns
-    df[float_cols] = df[float_cols].fillna(value=FLOAT_COLS_DEFAULT_VALUE)
+    df[song_float_attributes] = df[song_float_attributes].fillna(value=FLOAT_COLS_DEFAULT_VALUE)
 
     # missing values in string type columns
-    df[string_attribute_cols] = df[string_attribute_cols] \
+    df[song_string_attributes] = df[song_string_attributes] \
         .fillna(value=STRING_COLS_DEFAULT_VALUE) \
         .replace( to_replace='',value=STRING_COLS_DEFAULT_VALUE)
 
     # missing values in integer type columns
-    df['year'] = df['year'].fillna(value=INTEGER_COLS_DEFAULT_VALUE)
+    df['year'] = df['year'].fillna(value=SMALLINT_COLS_DEFAULT_VALUE)
+    
 
     # insert song record
     song_data = list(df[['song_id','title','artist_id','year','duration']].values[0])
@@ -53,6 +56,8 @@ def process_song_file(cur, filepath):
 
 
 def process_log_file(cur, filepath):
+    
+    
     # open log file
     df = pd.read_json(
          filepath
@@ -70,7 +75,6 @@ def process_log_file(cur, filepath):
                              ,'page'
                              ,'song'
                              ,'userAgent'
-                             ,'userId'
                             ]
 
     log_float_attributes = [ 'length'
@@ -78,10 +82,22 @@ def process_log_file(cur, filepath):
                            ]
 
     log_int_attributes = [ 'itemInSession'
-                          ,'sessionId'
                           ,'status'
-                          ,'ts'
                          ]
+    
+    
+    # replaces missing values in string type columns    
+    df[log_string_attributes] = df[log_string_attributes] \
+        .fillna(value=STRING_COLS_DEFAULT_VALUE) \
+        .replace(to_replace='',value=STRING_COLS_DEFAULT_VALUE)
+    
+    # replace missing values in float type columns    
+    df[log_float_attributes] = df[log_float_attributes] \
+        .fillna(value=FLOAT_COLS_DEFAULT_VALUE)
+    
+    # replace missing integers    
+    df[log_int_attributes] = df[log_int_attributes].fillna(value=SMALLINT_COLS_DEFAULT_VALUE)
+    
     
     # boolean indexing is used to filter "NextSong" events
     next_song_criteria = df['page'] == 'NextSong'
@@ -92,35 +108,32 @@ def process_log_file(cur, filepath):
     # convert timestamp column to datetime
     df['ts'] = pd.to_datetime(df['ts'],unit='ms')
     
-    # insert time data records
-    time_data = []
-    
-    time_data.append(df['ts'].dt.strftime('%Y%m%d %H:%M:%S.%f').values[0])
-
-    time_data.append(df['ts'].dt.day.values[0])
-
-    time_data.append(df['ts'].dt.hour.values[0])
-
-    time_data.append(df['ts'].dt.week.values[0])
-
-    time_data.append(df['ts'].dt.month.values[0])
-
-    time_data.append(df['ts'].dt.year.values[0])
-
-    time_data.append(df['ts'].dt.weekday_name.values[0])
-    
-    column_labels = [ 'start_time'
+    # "dim_time" column labels are specified
+    column_labels = ( 'start_time'
                      ,'hour'
                      ,'day'
                      ,'week'
                      ,'month'
                      ,'year'
                      ,'weekday'
-                    ]
+                    )
     
-    time_df = pd.DataFrame( data=[time_data]
-                           ,columns=column_labels
-                          )
+    # an empty DataFrame is created 
+    time_df = pd.DataFrame(columns=column_labels)
+
+    time_df['start_time'] = df['ts'].dt.strftime('%Y%m%d %H:%M:%S.%f').values[:]
+
+    time_df['hour'] = df['ts'].dt.hour.values[:]
+
+    time_df['day'] = df['ts'].dt.day.values[:]
+
+    time_df['week'] = df['ts'].dt.week.values[:]
+
+    time_df['month'] = df['ts'].dt.month.values[:]
+
+    time_df['year'] = df['ts'].dt.year.values[:]
+
+    time_df['weekday'] = df['ts'].dt.weekday_name.values[:]
 
     for i, row in time_df.iterrows():
         cur.execute(time_table_insert, list(row))
