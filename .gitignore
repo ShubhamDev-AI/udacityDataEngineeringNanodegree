@@ -4,3 +4,6 @@
 
 # the "Jupyter Notebooks" folder is ignored
 /jupyterNotebooks/*
+
+# the "sqlScripts" folder is ignored
+/sqlScripts/*
