@@ -36,11 +36,11 @@ songplay_table_create = """
     CREATE TABLE
         public.fact_songplays(
              songplay_id SERIAL PRIMARY KEY
-            ,start_time TIMESTAMPTZ --REFERENCES public.dim_time(start_time)
-            ,user_id INTEGER --REFERENCES public.dim_users(user_id)
+            ,start_time TIMESTAMPTZ REFERENCES public.dim_time(start_time)
+            ,user_id INTEGER REFERENCES public.dim_users(user_id)
             ,level TEXT NOT NULL
-            ,song_id TEXT --REFERENCES public.dim_songs(song_id)
-            ,artist_id TEXT --REFERENCES public.dim_artists(artist_id)
+            ,song_id TEXT REFERENCES public.dim_songs(song_id)
+            ,artist_id TEXT REFERENCES public.dim_artists(artist_id)
         )
     ;
 """
@@ -73,10 +73,10 @@ artist_table_create = """
     CREATE TABLE
         public.dim_artists(
              artist_id TEXT PRIMARY KEY
-            ,name TEXT NOT NULL DEFAULT 'Unknown'
-            ,location TEXT NOT NULL DEFAULT 'Unknown'
-            ,latitude FLOAT8 NOT NULL DEFAULT 999.99
-            ,longitude FLOAT8 NOT NULL DEFAULT 999.99
+            ,name TEXT NOT NULL
+            ,location TEXT NOT NULL
+            ,latitude FLOAT8 NOT NULL
+            ,longitude FLOAT8 NOT NULL
         )
     ;
 """
@@ -153,14 +153,13 @@ song_table_insert = """
             ,duration
         )
 
-    VALUES
-        (
-             %s
-            ,%s
-            ,%s
-            ,%s
-            ,%s
-        )
+    VALUES(
+         %s
+        ,%s
+        ,%s
+        ,%s
+        ,%s
+    )
     
     ON CONFLICT(
         song_id
@@ -260,8 +259,8 @@ song_select = """
 # being previously available.
 create_table_queries = [     
      user_table_create
-    ,song_table_create
     ,artist_table_create
+    ,song_table_create    
     ,time_table_create
     ,songplay_table_create
 ]

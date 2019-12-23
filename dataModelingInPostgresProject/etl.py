@@ -4,12 +4,21 @@ import psycopg2
 import pandas as pd
 from sql_queries import *
 
+# data quality default values are set as CONSTANTS:
 FLOAT_COLS_DEFAULT_VALUE = 9999999.99
 STRING_COLS_DEFAULT_VALUE = 'Unknown'
 SMALLINT_COLS_DEFAULT_VALUE = 9999
 INTEGER_COLS_DEFAULT_VALUE = 9999999
 
 def process_song_file(cur, filepath):
+    """
+    Processes the song files present in the received filepath directory.
+
+    Parameters:
+    cur (psycopg2 cursor object): the database connection cursor received.
+
+    filepath (string): target directory to operate upon.
+    """
     # open song file
     df = pd.read_json( 
          filepath
@@ -27,10 +36,8 @@ def process_song_file(cur, filepath):
     song_string_attributes = [
          'artist_location'
         ,'artist_name'
-        ,'song_id'
         ,'title'
     ]
-
     
     # default values are set for:
     #  missing data in float type columns
@@ -50,12 +57,19 @@ def process_song_file(cur, filepath):
     cur.execute(song_table_insert, song_data)
     
     # insert artist record
-    artist_data = list(df[['artist_id','artist_name','artist_location','artist_latitude','artist_longitude']].iloc[0].values)
-        
+    artist_data = list(df[['artist_id','artist_name','artist_location','artist_latitude','artist_longitude']].iloc[0].values)        
     cur.execute(artist_table_insert, artist_data)
 
 
 def process_log_file(cur, filepath):
+    """
+    Processes the log files present in the received filepath directory.
+
+    Parameters:
+    cur (psycopg2 cursor object): the database connection cursor received.
+
+    filepath (string): target directory to operate upon.
+    """
     
     
     # open log file
@@ -64,6 +78,7 @@ def process_log_file(cur, filepath):
         ,lines=True
      )
     
+    # string attributes in the file are listed
     log_string_attributes = [ 'artist'
                              ,'auth'
                              ,'firstName'
@@ -77,10 +92,12 @@ def process_log_file(cur, filepath):
                              ,'userAgent'
                             ]
 
+    # decimal number attributes in the file are listed
     log_float_attributes = [ 'length'
                             ,'registration'
                            ]
 
+    # integer attributes in the file are listed
     log_int_attributes = [ 'itemInSession'
                           ,'status'
                          ]
@@ -118,28 +135,28 @@ def process_log_file(cur, filepath):
                      ,'weekday'
                     )
     
-    # an empty DataFrame is created 
-    time_df = pd.DataFrame(columns=column_labels)
+    # Timestamps are separated into a single Series object for further handling
+    time_series = df['ts']
 
-    time_df['start_time'] = df['ts'].dt.strftime('%Y%m%d %H:%M:%S.%f').values[:]
+    # a tuple of Series objects holds the time dimension attributes
+    time_data = ( time_series
+                 ,time_series.dt.hour
+                 ,time_series.dt.day
+                 ,time_series.dt.week
+                 ,time_series.dt.month
+                 ,time_series.dt.year
+                 ,time_series.dt.weekday
+                )
 
-    time_df['hour'] = df['ts'].dt.hour.values[:]
+    #  a DataFrame is created by zipping the column_labels and time_data tuples
+    # into a Dictionary.
+    time_df = pd.DataFrame.from_dict(dict(zip(column_labels, time_data)))
 
-    time_df['day'] = df['ts'].dt.day.values[:]
-
-    time_df['week'] = df['ts'].dt.week.values[:]
-
-    time_df['month'] = df['ts'].dt.month.values[:]
-
-    time_df['year'] = df['ts'].dt.year.values[:]
-
-    time_df['weekday'] = df['ts'].dt.weekday_name.values[:]
-
+    #  Data is inserted into the "dim_time" table
     for i, row in time_df.iterrows():
         cur.execute(time_table_insert, list(row))
-
     
-    # load user table
+    # target user table attributes are listed based on the log file attributes
     target_user_attributes = [ 'userId'
                               ,'firstName'
                               ,'lastName'
@@ -147,6 +164,7 @@ def process_log_file(cur, filepath):
                               ,'level'
                              ]
 
+    # user attributes are extracted from the log file
     user_df = df.loc[:,target_user_attributes]
 
     # insert user records
@@ -158,8 +176,14 @@ def process_log_file(cur, filepath):
     for index, row in df.iterrows():
         
         # get songid and artistid from song and artist tables
-        results = cur.execute(song_select, (row.song, row.artist, row.length))
-        songid, artistid = results if results else None, None
+        cur.execute(song_select, (row.song, row.artist, row.length))
+        
+        results = cur.fetchone()
+        
+        if results:
+            songid, artistid = results
+        else:
+            songid, artistid = None, None
 
         # insert songplay record
         try:
@@ -173,7 +197,24 @@ def process_log_file(cur, filepath):
 
 
 def process_data(cur, conn, filepath, func):
-    # get all files matching extension from directory
+    """
+    Iterates through all files in a given folder.
+
+    Parameters:
+    cur (psycopg2 cursor object): the database connection cursor received.
+
+    conn (psycopg2 connection object): received database connection object.
+
+    filepath (string): directory path over which the function iterates.
+
+    func (custom function): the function called upon each file listed in 
+    the target directory.
+    """
+
+    #  Get all files matching extension from directory
+    #  An empty list ("all_files") is set up to receive the filenames
+    # at each iteration cycle.
+
     all_files = []
     for root, dirs, files in os.walk(filepath):
         files = glob.glob(os.path.join(root,'*.json'))
@@ -192,6 +233,13 @@ def process_data(cur, conn, filepath, func):
 
 
 def main():
+    """
+    ETL process handling.
+
+    Connects to the 'sparkifydb' database and calls functions to perform
+    transformations on the song files and log files, respectively.
+    """
+
     conn = psycopg2.connect("host=127.0.0.1 dbname=sparkifydb user=student password=student")
     cur = conn.cursor()
 
