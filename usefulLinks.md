@@ -24,6 +24,8 @@
 
 * `ALLOW FILTERING` explained (and why you should avoid it) → <https://www.datastax.com/blog/2014/12/allow-filtering-explained>
 
+* `ORDER BY` clauses → <https://stackoverflow.com/questions/35708118/where-and-order-by-clauses-in-cassandra-cql>
+
 ## The CAP Theorem
 
 CAP stands for "Consistency", "Availability" and "Partition Tolerance":
