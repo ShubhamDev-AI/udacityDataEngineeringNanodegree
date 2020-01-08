@@ -9,6 +9,8 @@
 
 ## Project 1 - Data Modeling in PostgreSQL
 
+![PostgreSQL Logo](images\postgresLogo.png)
+
  A PostgreSQL database is setup and five tables are created in it.
 The tables are Dimensionally modeled into a Star Schema, comprising
 Fact and Dimension tables describing songs and user activity from a
@@ -20,6 +22,8 @@ upon which is then applied an ETL process in Python for later ingestion.
 to production as python scripts.
 
 ## Project 2 - Data Modeling in Apache Cassandra
+
+![Apache Cassandra Logo](images\cassandraLogo.png)
 
  A Keyspace is setup in Apache Cassandra. Three Tables (Cassandra's "Column
 Families") are then created, their modeling based on Three queries regarding
