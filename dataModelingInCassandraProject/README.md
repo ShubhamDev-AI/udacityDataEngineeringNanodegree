@@ -20,11 +20,12 @@
 each of these tables is modeled based on one of the three queries given for
 this project.
 
- During the ingestion and modeling process, essential Cassandra's concepts  are exercised like:
+ During the ingestion and modeling process, Cassandra's essential concepts  are exercised like:
  * Keyspaces setup;
  * Column Families ("Tables") creation procedures, statements and data types;
+ * Tables are created to answer a specific query (data redundancy is OK);
  * Simple and Composite Primary Keys and Clustering Columns.
- * CQL (Cassandra Query Language) queries are issued;
+ * CQL (Cassandra Query Language) queries are used;
 
  Code is developed using Python's `cassandra` library in a Jupyter Notebook environment.
 
