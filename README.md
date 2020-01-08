@@ -9,7 +9,7 @@
 
 ## Project 1 - Data Modeling in PostgreSQL
 
-![PostgreSQL Logo](images\postgresLogo.png)
+![PostgreSQL Logo](postgresLogo.png)
 
  A PostgreSQL database is setup and five tables are created in it.
 The tables are Dimensionally modeled into a Star Schema, comprising
@@ -23,7 +23,7 @@ to production as python scripts.
 
 ## Project 2 - Data Modeling in Apache Cassandra
 
-![Apache Cassandra Logo](images\cassandraLogo.png)
+![Apache Cassandra Logo](cassandraLogo.png)
 
  A Keyspace is setup in Apache Cassandra. Three Tables (Cassandra's "Column
 Families") are then created, their modeling based on Three queries regarding

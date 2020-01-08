@@ -6,6 +6,8 @@
 
 ## Data Modeling in Apache Cassandra: Project Overview
 
+![Cassandra and Python](cassandraPython.png)
+
  This project comprises two main sections:  
 
 ### 1. CSV Files ETL
