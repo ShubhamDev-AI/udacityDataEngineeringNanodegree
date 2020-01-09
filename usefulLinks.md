@@ -1,10 +1,12 @@
-# NoSQL Data Models
+# Course Materials and Useful Links
 
-## NoSQL Databases Overview
+## NoSQL Data Models
+
+### NoSQL Databases Overview
 
 * <https://www.xenonstack.com/blog/nosql-databases/>
 
-## Apache Cassandra
+### Apache Cassandra
 
 * architecture tutorial → <https://www.tutorialspoint.com/cassandra/cassandra_architecture.htm/>
 
@@ -26,10 +28,16 @@
 
 * `ORDER BY` clauses → <https://stackoverflow.com/questions/35708118/where-and-order-by-clauses-in-cassandra-cql>
 
-## The CAP Theorem
+### The CAP Theorem
 
 CAP stands for "Consistency", "Availability" and "Partition Tolerance":
 
 * wikipedia article → <https://en.wikipedia.org/wiki/CAP_theorem>
 
 * ACID vs CAP discussion → <https://www.voltdb.com/blog/2015/10/22/disambiguating-acid-cap/>
+
+## Data Warehousing
+
+### 
+
+* O'Reilly Tutorial → <http://archive.oreilly.com/oreillyschool/courses/dba3/index.html>
