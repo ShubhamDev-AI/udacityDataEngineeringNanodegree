@@ -7,7 +7,7 @@
 
  Provides an overview of the projects tackled during the course.
 
-## Project 1 - Data Modeling in PostgreSQL
+## Project 1 - Data Modeling with PostgreSQL
 
 ![PostgreSQL Logo](postgresLogo.png)
 
@@ -21,7 +21,7 @@ upon which is then applied an ETL process in Python for later ingestion.
  Code is developed and tested in Jupyter Notebooks and then "rolled out"
 to production as python scripts.
 
-## Project 2 - Data Modeling in Apache Cassandra
+## Project 2 - Data Modeling with Apache Cassandra
 
 ![Apache Cassandra Logo](cassandraLogo.png)
 

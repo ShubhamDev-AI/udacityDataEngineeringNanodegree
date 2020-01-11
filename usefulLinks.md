@@ -54,4 +54,7 @@ CAP stands for "Consistency", "Availability" and "Partition Tolerance":
 
 * Postgres Environment Variables → <https://www.postgresql.org/docs/12/libpq-envars.html>
 
+* Linux Environment Variables Setup → <https://www.serverlab.ca/tutorials/linux/administration-linux/how-to-set-environment-variables-in-linux/>
+
 * Stackoverflow on PSQL credentials and scripts handling → <https://stackoverflow.com/questions/9736085/run-a-postgresql-sql-file-using-command-line-arguments>
+
