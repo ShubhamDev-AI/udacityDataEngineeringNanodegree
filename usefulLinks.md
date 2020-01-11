@@ -40,4 +40,18 @@ CAP stands for "Consistency", "Availability" and "Partition Tolerance":
 
 ### 
 
-* O'Reilly Tutorial → <http://archive.oreilly.com/oreillyschool/courses/dba3/index.html>
+* O'Reilly Dimensional Modeling Tutorial → <http://archive.oreilly.com/oreillyschool/courses/dba3/index.html>
+
+* Postgres DDL Constraints Documentation → <https://www.postgresql.org/docs/12/ddl-constraints.html>
+
+* Postgres COPY command documentation → <https://www.postgresql.org/docs/12/sql-copy.html>
+
+* PSQL tutorial → <http://postgresguide.com/utilities/psql.html>
+
+* Datacamp article on PSQL → <https://www.datacamp.com/community/tutorials/10-command-line-utilities-postgresql>
+
+* PSQL official documentation → <https://www.postgresql.org/docs/12/app-psql.html>
+
+* Postgres Environment Variables → <https://www.postgresql.org/docs/12/libpq-envars.html>
+
+* Stackoverflow on PSQL credentials and scripts handling → <https://stackoverflow.com/questions/9736085/run-a-postgresql-sql-file-using-command-line-arguments>
