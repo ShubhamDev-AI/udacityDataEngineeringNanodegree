@@ -40,6 +40,8 @@ CAP stands for "Consistency", "Availability" and "Partition Tolerance":
 
 ### 
 
+* ipython-sql documentation → https://github.com/catherinedevlin/ipython-sql
+
 * O'Reilly Dimensional Modeling Tutorial → <http://archive.oreilly.com/oreillyschool/courses/dba3/index.html>
 
 * Postgres DDL Constraints Documentation → <https://www.postgresql.org/docs/12/ddl-constraints.html>
