@@ -16,7 +16,7 @@ The tables are Dimensionally modeled into a Star Schema, comprising
 Fact and Dimension tables describing songs and user activity from a
 Music Streaming App.
 
- The data for these tables lies in multiple directories of JSON files,
+ The data for these tables are in multiple directories of JSON files,
 upon which is then applied an ETL process in Python for later ingestion.  
  Code is developed and tested in Jupyter Notebooks and then "rolled out"
 to production as python scripts.
@@ -29,6 +29,6 @@ to production as python scripts.
 Families") are then created, their modeling based on Three queries regarding
 user activity in a Music Streaming App.
 
- The data for these tables is located in a series of CSV files, which are
+ The data for these tables are located in a series of CSV files, which are
 then consolidated into a single file by an ETL process and then ingested into
 Cassandra's tables. Coding is done in a Jypyter Notebook.

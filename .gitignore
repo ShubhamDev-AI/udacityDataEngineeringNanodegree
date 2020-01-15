@@ -7,3 +7,9 @@
 
 # the "sqlScripts" folder is ignored
 /sqlScripts/*
+
+# connection credentials file
+database_connection_credentials.txt
+
+# this file (gitignore)
+# .gitignore

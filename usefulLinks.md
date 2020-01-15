@@ -38,7 +38,7 @@ CAP stands for "Consistency", "Availability" and "Partition Tolerance":
 
 ## Data Warehousing
 
-### 
+### Dimensional Modeling & OLAP Cubes
 
 * ipython-sql documentation → https://github.com/catherinedevlin/ipython-sql
 
@@ -60,3 +60,10 @@ CAP stands for "Consistency", "Availability" and "Partition Tolerance":
 
 * Stackoverflow on PSQL credentials and scripts handling → <https://stackoverflow.com/questions/9736085/run-a-postgresql-sql-file-using-command-line-arguments>
 
+* Citus' `cstore_fdw` Postgres columnar storage extension → <https://github.com/citusdata/cstore_fdw>
+
+### AWS Resources
+
+* IAM Role for Amazon Redshift setup → <https://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-create-an-iam-role.html>
+
+* Amazon Redshift: getting started → <https://docs.aws.amazon.com/redshift/latest/gsg/getting-started.html>
