@@ -67,3 +67,9 @@ CAP stands for "Consistency", "Availability" and "Partition Tolerance":
 * IAM Role for Amazon Redshift setup → <https://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-create-an-iam-role.html>
 
 * Amazon Redshift: getting started → <https://docs.aws.amazon.com/redshift/latest/gsg/getting-started.html>
+
+* Virtual Private Cloud (VPC) Overview → <https://en.wikipedia.org/wiki/Virtual_private_cloud>
+
+* AWS VPC Endpoints → <https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints.html>
+
+* Saving on AWS VPC Endpoints → <https://medium.com/nubego/how-to-save-money-with-aws-vpc-endpoints-9bac8ae1319c>
