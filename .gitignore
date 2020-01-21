@@ -4,3 +4,6 @@
 
 # connection credentials file
 database_connection_credentials.txt
+
+# DataWarehouse config file
+/Exercises Notebooks/03 Data Warehouses/*.cfg

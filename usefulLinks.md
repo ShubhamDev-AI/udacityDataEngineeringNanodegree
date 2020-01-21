@@ -73,3 +73,7 @@ CAP stands for "Consistency", "Availability" and "Partition Tolerance":
 * AWS VPC Endpoints → <https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints.html>
 
 * Saving on AWS VPC Endpoints → <https://medium.com/nubego/how-to-save-money-with-aws-vpc-endpoints-9bac8ae1319c>
+
+* AWS's Python SDK: `boto3` → <https://boto3.amazonaws.com/v1/documentation/api/latest/index.html>
+
+* Python's `configparser` library documentation → <https://docs.python.org/3/library/configparser.html>
