@@ -25,10 +25,14 @@ to production as python scripts.
 
 ![Apache Cassandra Logo](cassandraLogo.png)
 
- A Keyspace is setup in Apache Cassandra. Three Tables (Cassandra's "Column
-Families") are then created, their modeling based on Three queries regarding
+ A Keyspace is setup in Apache Cassandra. Three tables (Cassandra's "Column
+Families") are then created, their modeling based on three queries regarding
 user activity in a Music Streaming App.
 
  The data for these tables are located in a series of CSV files, which are
 then consolidated into a single file by an ETL process and then ingested into
 Cassandra's tables. Coding is done in a Jypyter Notebook.
+
+## Project 3 - Cloud Data Warehousing with AWS Redshift
+
+![Amazon Web Services Logo](AWSLogo.png)
