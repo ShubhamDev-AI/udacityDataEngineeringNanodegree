@@ -35,4 +35,8 @@ Cassandra's tables. Coding is done in a Jypyter Notebook.
 
 ## Project 3 - Cloud Data Warehousing with AWS Redshift
 
-![Amazon Web Services Logo](AWSLogo.png)
+![Amazon Web Services Logo](AWSLogo.png)  
+  
+ A Data Warehouse is created using an AWS Redshift instance. The cluster is programatically setup using python's `boto3` library. Database modeling and loading leverages various Redshift concepts like Distribution Keys, Sort Keys and Parallel Bulk Loads.  
+   
+ The data used in this project reside in a series of S3 Buckets, which are read and consolidated into two staging tables within the database. Finally, there's a Jupyter Notebook with data exploration results leveraging the Dimensional data model resulting from this project.
