@@ -86,4 +86,52 @@ CAP stands for "Consistency", "Availability" and "Partition Tolerance":
 
 * [Primary Keys in AWS Redshift](<https://dev.to/naturalkey/primary-keys-in-redshift-425b>)
 
-* [AWS Redshift Unique, Primary and Foreign Key Constraints](<https://docs.aws.amazon.com/redshift/latest/dg/t_Defining_constraints.html>)
+* [AWS Redshift Unique, Primary and Foreign Key Constraints](<https://docs.aws.amazon.com/redshift/latest/dg/t_Defining_constraints.html>)  
+
+## Data Lakes & Spark  
+
+### Tools and Languages
+
+* [Apache Spark Website](<http://spark.apache.org/docs/latest/index.html>)
+
+* [Apache Flink Website](<https://flink.apache.org/>)  
+
+* [Apache Storm Website](<http://storm.apache.org/>)  
+
+* [Spark Streaming](https://spark.apache.org/docs/latest/streaming-programming-guide.html)  
+
+* [Apache Impala](https://impala.apache.org/)
+
+* [Pydata.org](<https://pydata.org/>)  
+
+* [Java Virtual Machine](<https://en.wikipedia.org/wiki/Java_virtual_machine>)  
+
+* [Lambda Calculus for Absolute Dummies](<http://palmstroem.blogspot.com/2012/05/lambda-calculus-for-absolute-dummies.html>)  
+
+* [PySpark API Docs](<https://spark.apache.org/docs/latest/api/python/index.html>)  
+
+* [Jupyter Docker Stacks](https://jupyter-docker-stacks.readthedocs.io/en/latest/)  
+
+* [Jupyter Docker Stack GitHub page](https://github.com/jupyter/docker-stacks)  
+
+* [Dive into Docker course](https://diveintodocker.com/?utm_source=nj&utm_medium=website&utm_campaign=/blog/understanding-how-the-docker-daemon-and-docker-cli-work-together)  
+
+* [Caching Data in Spark Applications](<https://unraveldata.com/to-cache-or-not-to-cache/>)  
+
+* [Spark API's → RDDs versus DataFrames and Datasets](<https://databricks.com/blog/2016/07/14/a-tale-of-three-apache-spark-apis-rdds-dataframes-and-datasets.html>)
+
+* [Spark Managers: Standalone vs YARN vs Mesos](<https://stackoverflow.com/questions/31806188/standalone-manager-vs-yarn-vs-mesos>)  
+
+* [Spark Configuration Docs](<https://spark.apache.org/docs/latest/configuration.html>)  
+
+* [Spark Performance Tuning](<https://spark.apache.org/docs/latest/tuning.html>)  
+
+* [Spark SQL Tuning](<https://spark.apache.org/docs/latest/sql-performance-tuning.html>)
+
+* [Spark Function Types](<https://medium.com/@mrpowers/the-different-type-of-spark-functions-custom-transformations-column-functions-udfs-bf556c9d0ce7>)
+
+* [Spark UDF's](<https://medium.com/@mrpowers/spark-user-defined-functions-udfs-6c849e39443b>)  
+
+* [AWS S3 Credentials usage in Spark](<http://wrschneider.github.io/2019/02/02/spark-credentials-file.html>)
+
+* [Default AWS Environment Variables](<https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-envvars.html>)
