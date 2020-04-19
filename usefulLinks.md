@@ -146,6 +146,10 @@ CAP stands for "Consistency", "Availability" and "Partition Tolerance":
 
 * [Spark Maximum Recommended Task Size](<https://stackoverflow.com/questions/28878654/spark-using-python-how-to-resolve-stage-x-contains-a-task-of-very-large-size-x?rq=1>)
 
+* [How Apache Hudi Works](<https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-hudi-how-it-works.html>)  
+
+* [List S3 Bucket Contents with Boto3](<https://stackoverflow.com/questions/35803027/retrieving-subfolders-names-in-s3-bucket-from-boto3>)
+
 ## General Materials
 
 ### Python Programming  

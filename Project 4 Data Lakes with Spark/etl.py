@@ -11,12 +11,12 @@ import pyspark.sql.functions as sqlFunctions
 """----------------------------------------------------------------------------
     Use "configparser" to read AWS credentials from a configuration file.    
 ----------------------------------------------------------------------------"""
+
 config = configparser.ConfigParser()
 config.read('dl.cfg')
 
 os.environ['AWS_ACCESS_KEY_ID']=config.get('AWS_CREDENTIALS','AWS_ACCESS_KEY_ID')
 os.environ['AWS_SECRET_ACCESS_KEY']=config.get('AWS_CREDENTIALS','AWS_SECRET_ACCESS_KEY')
-
 
 def create_spark_session():
     """ Create a pyspark.sql.SparkSession() Class instance
@@ -75,8 +75,9 @@ def process_song_data(spark, input_data, output_data):
 
 
     """------------------------------------------------------------------------
-    create dim_songs dimensions
+        create DIM_SONGS dimension
     ------------------------------------------------------------------------"""
+
     # select appropriate columns to create the songs table
     dim_songs_df = song_df.select(
          'song_id'
@@ -112,8 +113,9 @@ def process_song_data(spark, input_data, output_data):
     print(f'{logTime} UTC: {processName} took {completionUnixEpoch - startUnixEpoch} ms to execute.')
 
     """------------------------------------------------------------------------
-    create dim_artists dimension
+        create DIM_ARTISTS dimension
     ------------------------------------------------------------------------"""
+
     # Select appropriate columns to create the artists table
     dim_artists_df = song_df.select(
          'artist_id'
@@ -179,7 +181,6 @@ def process_log_data(spark, input_data, output_data):
         Returns:
             timestamp (timestamp): Unix Epoch value conversion result.
         """
-        from datetime import datetime
 
         # Unix-Epoch values are converted to human-readable timestamps
         try:
@@ -192,7 +193,9 @@ def process_log_data(spark, input_data, output_data):
         return timestamp
     
     """------------------------------------------------------------------------
+        Read "log-data" files from S3 Bucket
     ------------------------------------------------------------------------"""
+
     # get filepath to log data file
     log_data = input_data+'log_data/*/*/*.json' # <<-- S3 MULTIPLE FILES PATH
 
@@ -202,22 +205,20 @@ def process_log_data(spark, input_data, output_data):
 
     df_logs = spark.read.json(
          path=log_data
-        ,multiLine=True
         ,schema=logsJsonSchema
     )
 
     logTime, completionUnixEpoch = getCurrentTime()
     print(f'{logTime} UTC: {processName} took {completionUnixEpoch - startUnixEpoch} ms to execute.')
     
-    #  Missing User ID's are filtered out;
     #  The "ts" column is converted into human-readable timestamp;
-    df_logs = df_logs \
-        .where("userID IS NOT NULL AND userID <> ''") \
-        .withColumn('event_timestamp',epoch_to_timestamp(df_logs['ts']))
+    df_logs = df_logs.withColumn('event_timestamp',epoch_to_timestamp(df_logs['ts']))
 
     """----------------------------------------------------------------------------
+        create DIM_USERS dimension
+    ----------------------------------------------------------------------------"""
 
-        create dim_users dimensions
+    """----------------------------------------------------------------------------
     
         NOTES: the "dim_users" table ETL follows the steps below:
     
@@ -254,6 +255,7 @@ def process_log_data(spark, input_data, output_data):
         .partitionBy(sqlFunctions.col('user_id')) \
         .orderBy(sqlFunctions.col('event_timestamp'))
 
+    # expression to calculate "subscription_level_valid_until" column
     userLevelValidUntilExpression = sqlFunctions.lead(
          sqlFunctions.col('event_timestamp')
         ,1
@@ -268,6 +270,7 @@ def process_log_data(spark, input_data, output_data):
         ,sqlFunctions.col('level')
         ,sqlFunctions.col('event_timestamp')
     ) \
+    .where("user_id IS NOT NULL AND user_id <> ''") \
     .withColumn('previous_event_subscription_level',userPreviousLevelOption) \
     .where("level <> previous_event_subscription_level") \
     .withColumn('subscription_level_valid_until',userLevelValidUntilExpression) \
@@ -302,6 +305,10 @@ def process_log_data(spark, input_data, output_data):
     logTime, completionUnixEpoch = getCurrentTime()
     print(f'{logTime} UTC: {processName} took {completionUnixEpoch - startUnixEpoch} ms to execute.')
     
+    """------------------------------------------------------------------------
+        create DIM_TIME dimension
+    ------------------------------------------------------------------------"""
+
     dim_time_df = df_logs.select(
          df_logs['event_timestamp']
         ,sqlFunctions.hour(df_logs['event_timestamp']).alias('hour')
@@ -338,24 +345,10 @@ def process_log_data(spark, input_data, output_data):
     logTime, completionUnixEpoch = getCurrentTime()
     print(f'{logTime} UTC: {processName} took {completionUnixEpoch - startUnixEpoch} ms to execute.')
 
-    # "log_data" columns for the "fact_songplays" table are selected below
-    # Add a "songplay_id" column by using a SQL function
-    # 'NextSong' pages indicate a songplay event, so only these pages are kept.
-    log_events = df_logs.select(
-         sqlFunctions.col('event_timestamp')
-        ,sqlFunctions.col('sessionId').alias('session_id')
-        ,sqlFunctions.col('userId').alias('user_id')
-        ,sqlFunctions.col('level')
-        ,sqlFunctions.col('song')
-        ,sqlFunctions.col('length')
-        ,sqlFunctions.col('artist')
-        ,sqlFunctions.col('location')
-        ,sqlFunctions.col('userAgent').alias('user_agent')
-    ) \
-    .where(df_logs['page'] == 'NextSong') \
-    .withColumn('songplay_id',sqlFunctions.monotonically_increasing_id()
-    )
-    
+    """------------------------------------------------------------------------
+        create FACT_SONGPLAYS fact table
+    ------------------------------------------------------------------------"""
+
     #  "dim_songs" pre processed table is read back to memory, thus saving IO and
     # avoiding a repetition of ETL steps already performed.
     logTime, startUnixEpoch, processName = getCurrentTime(processName='dim_songs Parquet ingestion')
@@ -375,7 +368,24 @@ def process_log_data(spark, input_data, output_data):
 
     logTime, completionUnixEpoch = getCurrentTime()
     print(f'{logTime} UTC: {processName} took {completionUnixEpoch - startUnixEpoch} ms to execute.')
-    
+
+    # "log_data" columns for the "fact_songplays" table are selected below
+    # Add a "songplay_id" column by using a SQL function
+    # 'NextSong' pages indicate a songplay event, so only these pages are kept.
+    log_events = df_logs.select(
+         sqlFunctions.col('event_timestamp')
+        ,sqlFunctions.col('sessionId').alias('session_id')
+        ,sqlFunctions.col('userId').alias('user_id')
+        ,sqlFunctions.col('level')
+        ,sqlFunctions.col('song')
+        ,sqlFunctions.col('length')
+        ,sqlFunctions.col('artist')
+        ,sqlFunctions.col('location')
+        ,sqlFunctions.col('userAgent').alias('user_agent')
+    ) \
+    .where("page = 'NextSong' AND user_id IS NOT NULL") \
+    .withColumn('songplay_id',sqlFunctions.monotonically_increasing_id())
+
     # joins with multiple conditions must be passed as a list
     log_songs_join_conditions = [log_events['song'] == dim_songs['title'] , log_events['length'] == dim_songs['duration']]
 
