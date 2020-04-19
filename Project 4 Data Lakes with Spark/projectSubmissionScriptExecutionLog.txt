@@ -1,0 +1,117 @@
+
+-------------------------------------------------------------------------------
+Data Ingestion With Schema Metadata Explicitly Declared
+-------------------------------------------------------------------------------
+
+2020-04-19 00:23:10 UTC: main() execution started.
+2020-04-19 00:23:10 UTC: create_spark_session() execution started.
+2020-04-19 00:23:23 UTC: create_spark_session() took 13421 ms to execute.
+2020-04-19 00:23:23 UTC: reading from: s3a://udacity-dend/
+2020-04-19 00:23:23 UTC: writing to: s3a://hds-dataeng/udacityNanodegreeDataLake/
+2020-04-19 00:23:23 UTC: process_song_data() execution started.
+2020-04-19 00:23:23 UTC: song_data JSON ingestion execution started.
+2020-04-19 00:24:21 UTC: song_data JSON ingestion took 57801 ms to execute.
+2020-04-19 00:24:21 UTC: partitioned dim_songs Parquet write execution started.
+2020-04-19 00:46:24 UTC: partitioned dim_songs Parquet write took 1322357 ms to execute.
+2020-04-19 00:46:24 UTC: non-partitioned dim_songs Parquet write execution started.
+2020-04-19 00:47:22 UTC: non-partitioned dim_songs Parquet write took 58356 ms to execute.
+2020-04-19 00:47:22 UTC: dim_artists Parquet write execution started.
+2020-04-19 00:48:14 UTC: dim_artists Parquet write took 51610 ms to execute.
+2020-04-19 00:48:14 UTC: process_song_data() took 1490294 ms to execute.
+2020-04-19 00:48:14 UTC: process_log_data() execution started.
+2020-04-19 00:48:14 UTC: log_data JSON ingestion execution started.
+2020-04-19 00:48:14 UTC: log_data JSON ingestion took 534 ms to execute.
+2020-04-19 00:48:15 UTC: dim_users Parquet write execution started.
+2020-04-19 00:48:20 UTC: dim_users Parquet write took 5606 ms to execute.
+2020-04-19 00:48:20 UTC: partitioned dim_time Parquet write execution started.
+2020-04-19 00:48:26 UTC: partitioned dim_time Parquet write took 5814 ms to execute.
+2020-04-19 00:48:26 UTC: non-partitioned dim_time Parquet write execution started.
+2020-04-19 00:48:31 UTC: non-partitioned dim_time Parquet write took 4513 ms to execute.
+2020-04-19 00:48:31 UTC: dim_songs Parquet ingestion execution started.
+2020-04-19 00:48:31 UTC: dim_songs Parquet ingestion took 388 ms to execute.
+2020-04-19 00:48:31 UTC: dim_artists Parquet ingestion execution started.
+2020-04-19 00:48:32 UTC: dim_artists Parquet ingestion took 307 ms to execute.
+2020-04-19 00:48:32 UTC: partitioned fact_songplays Parquet write execution started.
+2020-04-19 00:48:37 UTC: partitioned fact_songplays Parquet write took 5467 ms to execute.
+2020-04-19 00:48:37 UTC: non-partitioned fact_songplays Parquet write execution started.
+2020-04-19 00:48:43 UTC: non-partitioned fact_songplays Parquet write took 6103 ms to execute.
+2020-04-19 00:48:43 UTC: process_log_data() took 29382 ms to execute.
+2020-04-19 00:48:43 UTC: main() took 1533097 ms to execute.
+
+-------------------------------------------------------------------------------
+Data Ingestion Without Schema Metadata Explicitly Declared
+-------------------------------------------------------------------------------
+
+2020-04-19 01:59:02 UTC: main() execution started.
+2020-04-19 01:59:02 UTC: create_spark_session() execution started.
+2020-04-19 01:59:15 UTC: create_spark_session() took 13035 ms to execute.
+2020-04-19 01:59:15 UTC: reading from: s3a://udacity-dend/
+2020-04-19 01:59:15 UTC: writing to: s3a://hds-dataeng/udacityNanodegreeDataLake/
+2020-04-19 01:59:15 UTC: process_song_data() execution started.
+2020-04-19 01:59:15 UTC: song_data JSON ingestion execution started.
+2020-04-19 02:28:26 UTC: song_data JSON ingestion took 1751531 ms to execute.
+2020-04-19 02:28:27 UTC: partitioned dim_songs Parquet write execution started.
+2020-04-19 02:51:42 UTC: partitioned dim_songs Parquet write took 1395613 ms to execute.
+2020-04-19 02:51:42 UTC: non-partitioned dim_songs Parquet write execution started.
+2020-04-19 02:52:30 UTC: non-partitioned dim_songs Parquet write took 48367 ms to execute.
+2020-04-19 02:52:31 UTC: dim_artists Parquet write execution started.
+2020-04-19 02:53:19 UTC: dim_artists Parquet write took 48676 ms to execute.
+2020-04-19 02:53:19 UTC: process_song_data() took 3244326 ms to execute.
+2020-04-19 02:53:19 UTC: process_log_data() execution started.
+2020-04-19 02:53:19 UTC: log_data JSON ingestion execution started.
+2020-04-19 02:53:22 UTC: log_data JSON ingestion took 2856 ms to execute.
+2020-04-19 02:53:23 UTC: dim_users Parquet write execution started.
+2020-04-19 02:53:29 UTC: dim_users Parquet write took 6491 ms to execute.
+2020-04-19 02:53:29 UTC: partitioned dim_time Parquet write execution started.
+2020-04-19 02:53:36 UTC: partitioned dim_time Parquet write took 6408 ms to execute.
+2020-04-19 02:53:36 UTC: non-partitioned dim_time Parquet write execution started.
+2020-04-19 02:53:41 UTC: non-partitioned dim_time Parquet write took 4901 ms to execute.
+2020-04-19 02:53:41 UTC: dim_songs Parquet ingestion execution started.
+2020-04-19 02:53:41 UTC: dim_songs Parquet ingestion took 293 ms to execute.
+2020-04-19 02:53:41 UTC: dim_artists Parquet ingestion execution started.
+2020-04-19 02:53:41 UTC: dim_artists Parquet ingestion took 358 ms to execute.
+2020-04-19 02:53:41 UTC: partitioned fact_songplays Parquet write execution started.
+2020-04-19 02:53:47 UTC: partitioned fact_songplays Parquet write took 5845 ms to execute.
+2020-04-19 02:53:47 UTC: non-partitioned fact_songplays Parquet write execution started.
+2020-04-19 02:53:53 UTC: non-partitioned fact_songplays Parquet write took 5440 ms to execute.
+2020-04-19 02:53:53 UTC: process_log_data() took 33358 ms to execute.
+2020-04-19 02:53:53 UTC: main() took 3290719 ms to execute.
+
+-------------------------------------------------------------------------------
+Data Ingestion With Schema Metadata Explicitly Declared
+-------------------------------------------------------------------------------
+
+2020-04-19 02:58:54 UTC: main() execution started.
+2020-04-19 02:58:54 UTC: create_spark_session() execution started.
+2020-04-19 02:59:07 UTC: create_spark_session() took 12860 ms to execute.
+2020-04-19 02:59:07 UTC: reading from: s3a://udacity-dend/
+2020-04-19 02:59:07 UTC: writing to: s3a://hds-dataeng/udacityNanodegreeDataLake/
+2020-04-19 02:59:07 UTC: process_song_data() execution started.
+2020-04-19 02:59:07 UTC: song_data JSON ingestion execution started.
+2020-04-19 03:00:03 UTC: song_data JSON ingestion took 55864 ms to execute.
+2020-04-19 03:00:03 UTC: partitioned dim_songs Parquet write execution started.
+2020-04-19 03:23:42 UTC: partitioned dim_songs Parquet write took 1418928 ms to execute.
+2020-04-19 03:23:42 UTC: non-partitioned dim_songs Parquet write execution started.
+2020-04-19 03:24:32 UTC: non-partitioned dim_songs Parquet write took 50055 ms to execute.
+2020-04-19 03:24:32 UTC: dim_artists Parquet write execution started.
+2020-04-19 03:25:22 UTC: dim_artists Parquet write took 50326 ms to execute.
+2020-04-19 03:25:22 UTC: process_song_data() took 1575289 ms to execute.
+2020-04-19 03:25:22 UTC: process_log_data() execution started.
+2020-04-19 03:25:22 UTC: log_data JSON ingestion execution started.
+2020-04-19 03:25:23 UTC: log_data JSON ingestion took 740 ms to execute.
+2020-04-19 03:25:24 UTC: dim_users Parquet write execution started.
+2020-04-19 03:25:29 UTC: dim_users Parquet write took 5717 ms to execute.
+2020-04-19 03:25:29 UTC: partitioned dim_time Parquet write execution started.
+2020-04-19 03:25:35 UTC: partitioned dim_time Parquet write took 5910 ms to execute.
+2020-04-19 03:25:35 UTC: non-partitioned dim_time Parquet write execution started.
+2020-04-19 03:25:40 UTC: non-partitioned dim_time Parquet write took 5200 ms to execute.
+2020-04-19 03:25:40 UTC: dim_songs Parquet ingestion execution started.
+2020-04-19 03:25:41 UTC: dim_songs Parquet ingestion took 341 ms to execute.
+2020-04-19 03:25:41 UTC: dim_artists Parquet ingestion execution started.
+2020-04-19 03:25:41 UTC: dim_artists Parquet ingestion took 261 ms to execute.
+2020-04-19 03:25:41 UTC: partitioned fact_songplays Parquet write execution started.
+2020-04-19 03:25:47 UTC: partitioned fact_songplays Parquet write took 5882 ms to execute.
+2020-04-19 03:25:47 UTC: non-partitioned fact_songplays Parquet write execution started.
+2020-04-19 03:25:52 UTC: non-partitioned fact_songplays Parquet write took 5295 ms to execute.
+2020-04-19 03:25:52 UTC: process_log_data() took 30124 ms to execute.
+2020-04-19 03:25:52 UTC: main() took 1618273 ms to execute.

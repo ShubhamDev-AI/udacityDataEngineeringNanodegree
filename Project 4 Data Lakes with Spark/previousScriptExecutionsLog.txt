@@ -1,0 +1,183 @@
+
+    +-----------------------------------------------------------------------------+ 
+
+        SCRIPT EXECUTION STARTED AT 2020-04-16 02:33:56 UTC.
+
+        Executed on EMR Cluster of m5.xlarge machines (masters: 1 workers: 3)
+
+        Read all files from each of the "song-data" and "log-data" folders.
+
+        Reads data from and writes data back to S3 Buckets located in us-west-2.
+
+    +-----------------------------------------------------------------------------+
+    
+2020-04-16 02:34:09 => "create_spark_session()" took 13007 ms to execute.
+2020-04-16 02:34:09 => reading from: s3a://udacity-dend/
+2020-04-16 02:34:09 => writing to: s3a://heder-santos-udacity-dend/udacityNanodegreeDataLake/
+2020-04-16 02:35:09 => "song_data" JSON ingestion took 59620 ms to execute.
+2020-04-16 02:57:19 => Partitioned "dim_songs" Parquet write took 1330466 ms to execute.
+2020-04-16 02:58:24 => Non-partitioned "dim_songs" Parquet write took 64671 ms to execute.
+2020-04-16 02:59:11 => "dim_artists" Parquet write took 46427 ms to execute.
+2020-04-16 02:59:11 => "process_song_data()" took 1501346 ms to execute.
+2020-04-16 02:59:11 => "log_data" JSON ingestion took 532 ms to execute.
+2020-04-16 02:59:14 => "dim_users" Parquet write took 2380 ms to execute.
+2020-04-16 02:59:20 => Partitioned "dim_time" Parquet write took 5964 ms to execute.
+2020-04-16 02:59:25 => Non-partitioned "dim_time" Parquet write took 4961 ms to execute.
+2020-04-16 02:59:25 => "dim_songs" JSON ingestion took 342 ms to execute.
+2020-04-16 02:59:25 => "dim_artists" JSON ingestion took 303 ms to execute.
+2020-04-16 02:59:35 => Partitioned "fact_songplays" Parquet write took 9304 ms to execute.
+2020-04-16 02:59:44 => Non-partitioned "fact_songplays" Parquet write took 9765 ms to execute.
+2020-04-16 02:59:44 => "process_log_data()" took 33855 ms to execute.
+2020-04-16 02:59:44 => "main()" took 1548208 ms to execute.
+
+    +-----------------------------------------------------------------------------+ 
+
+        SCRIPT EXECUTION FINISHED AT 2020-04-16 02:59:44 UTC.
+
+    +-----------------------------------------------------------------------------+
+
+    +-----------------------------------------------------------------------------+ 
+
+        SCRIPT EXECUTION STARTED AT 2020-04-16 01:35:06 UTC.
+
+        Executed on EMR Cluster of m5.xlarge machines (masters: 1 workers: 3)
+
+        Read a single file from each of the "song-data" and "log-data" folders.
+
+        Reads data from and writes data back to S3 Buckets located in us-west-2.
+
+    +-----------------------------------------------------------------------------+ 
+
+2020-04-16 01:35:19 => "create_spark_session()" took 13086 ms to execute.
+2020-04-16 01:35:19 => reading from: s3a://udacity-dend/ 
+2020-04-16 01:35:19 => writing to: s3a://hds-dataeng/udacityNanodegreeDataLake/ 
+2020-04-16 01:35:21 => "song_data" JSON ingestion took 1661 ms to execute.
+2020-04-16 01:35:29 => Partitioned "dim_songs" Parquet write took 8232 ms to execute.
+2020-04-16 01:35:34 => Non-partitioned "dim_songs" Parquet write took 5408 ms to execute.
+2020-04-16 01:35:41 => "dim_artists" Parquet write took 6157 ms to execute.
+2020-04-16 01:35:41 => "process_song_data()" took 21583 ms to execute.
+2020-04-16 01:35:41 => "log_data" JSON ingestion took 101 ms to execute.
+2020-04-16 01:35:43 => "dim_users" Parquet write took 1952 ms to execute.
+2020-04-16 01:35:47 => Partitioned "dim_time" Parquet write took 3988 ms to execute.
+2020-04-16 01:35:50 => Non-partitioned "dim_time" Parquet write took 3344 ms to execute.
+2020-04-16 01:35:51 => "dim_songs" JSON ingestion took 541 ms to execute.
+2020-04-16 01:35:51 => "dim_artists" JSON ingestion took 276 ms to execute.
+2020-04-16 01:35:53 => Partitioned "fact_songplays" Parquet write took 1981 ms to execute.
+2020-04-16 01:35:56 => Non-partitioned "fact_songplays" Parquet write took 2950 ms to execute.
+2020-04-16 01:35:56 => "process_log_data()" took 15429 ms to execute.
+2020-04-16 01:35:56 => "main()" took 50098 ms to execute.
+
+    +-----------------------------------------------------------------------------+ 
+
+        SCRIPT EXECUTION FINISHED AT 2020-04-16 01:35:56 UTC.
+
+    +-----------------------------------------------------------------------------+ 
+
+    +-----------------------------------------------------------------------------+ 
+
+        SCRIPT EXECUTION STARTED AT 2020-04-15 12:53:48 UTC.
+        
+        Executed on Udacity's Project Workspace.
+        
+        Processes a single file within each S3 "song-data" and "log-data" folders.
+
+    +-----------------------------------------------------------------------------+
+    
+2020-04-15 12:54:02 => "create_spark_session()" took 14912 ms to execute.
+2020-04-15 12:54:02 => reading from: s3a://udacity-dend/ 
+2020-04-15 12:54:02 => writing to: s3a://hds-dataeng/udacityNanodegreeDataLake/ 
+2020-04-15 12:54:06 => "song_data" JSON ingestion took 3724 ms to execute.
+2020-04-15 12:55:06 => Partitioned "dim_songs" Parquet write took 59633 ms to execute.
+2020-04-15 12:55:18 => Non-partitioned "dim_songs" Parquet write took 11546 ms to execute.
+2020-04-15 12:56:26 => "dim_artists" Parquet write took 68597 ms to execute.
+2020-04-15 12:56:26 => "process_song_data()" took 143751 ms to execute.
+2020-04-15 12:56:27 => "log_data" JSON ingestion took 535 ms to execute.
+2020-04-15 12:56:39 => "dim_users" Parquet write took 11042 ms to execute.
+2020-04-15 12:57:33 => Partitioned "dim_time" Parquet write took 54479 ms to execute.
+2020-04-15 12:58:32 => Non-partitioned "dim_time" Parquet write took 58222 ms to execute.
+2020-04-15 12:58:33 => "dim_songs" JSON ingestion took 1584 ms to execute.
+2020-04-15 12:58:35 => "dim_artists" JSON ingestion took 1481 ms to execute.
+2020-04-15 12:58:43 => Partitioned "fact_songplays" Parquet write took 7823 ms to execute.
+2020-04-15 12:58:56 => Non-partitioned "fact_songplays" Parquet write took 13769 ms to execute.
+2020-04-15 12:58:56 => "process_log_data()" took 150225 ms to execute.
+2020-04-15 12:58:56 => "main()" took 308888 ms to execute.
+
+    +-----------------------------------------------------------------------------+ 
+
+        SCRIPT EXECUTION FINISHED AT 2020-04-15 12:58:56 UTC.
+
+    +-----------------------------------------------------------------------------+
+
+    +-----------------------------------------------------------------------------+ 
+
+        SCRIPT EXECUTION STARTED AT 2020-04-15 12:45:55 UTC.
+        
+        Executed on Udacity's Project Workspace.
+        
+        Processes a single file within each local "song-data" and "log-data" folders.
+
+    +-----------------------------------------------------------------------------+
+    
+2020-04-15 12:46:10 => "create_spark_session()" took 14759 ms to execute.
+2020-04-15 12:46:10 => reading from: data/input/ 
+2020-04-15 12:46:10 => writing to: data/output/ 
+2020-04-15 12:46:13 => "song_data" JSON ingestion took 3036 ms to execute.
+2020-04-15 12:46:20 => Partitioned "dim_songs" Parquet write took 6734 ms to execute.
+2020-04-15 12:46:20 => Non-partitioned "dim_songs" Parquet write took 467 ms to execute.
+2020-04-15 12:46:29 => "dim_artists" Parquet write took 8510 ms to execute.
+2020-04-15 12:46:29 => "process_song_data()" took 18963 ms to execute.
+2020-04-15 12:46:29 => "log_data" JSON ingestion took 53 ms to execute.
+2020-04-15 12:46:30 => "dim_users" Parquet write took 521 ms to execute.
+2020-04-15 12:46:39 => Partitioned "dim_time" Parquet write took 8458 ms to execute.
+2020-04-15 12:46:44 => Non-partitioned "dim_time" Parquet write took 5481 ms to execute.
+2020-04-15 12:46:45 => "dim_songs" JSON ingestion took 307 ms to execute.
+2020-04-15 12:46:45 => "dim_artists" JSON ingestion took 134 ms to execute.
+2020-04-15 12:46:47 => Partitioned "fact_songplays" Parquet write took 1677 ms to execute.
+2020-04-15 12:46:48 => Non-partitioned "fact_songplays" Parquet write took 1294 ms to execute.
+2020-04-15 12:46:48 => "process_log_data()" took 19205 ms to execute.
+2020-04-15 12:46:48 => "main()" took 52928 ms to execute.
+
+
+    +-----------------------------------------------------------------------------+ 
+
+        SCRIPT EXECUTION FINISHED AT 2020-04-15 12:46:48 UTC.
+
+    +-----------------------------------------------------------------------------+
+    
+
+    +-----------------------------------------------------------------------------+ 
+
+        SCRIPT EXECUTION STARTED AT 2020-04-15 12:48:01 UTC.
+        
+        Executed on Udacity's Project Workspace.
+        
+        Processes all files within local "song-data" and "log-data" folders.
+
+    +-----------------------------------------------------------------------------+
+    
+2020-04-15 12:48:16 => "create_spark_session()" took 14845 ms to execute.
+2020-04-15 12:48:16 => reading from: data/input/ 
+2020-04-15 12:48:16 => writing to: data/output/ 
+2020-04-15 12:48:24 => "song_data" JSON ingestion took 8066 ms to execute.
+2020-04-15 12:48:29 => Partitioned "dim_songs" Parquet write took 5738 ms to execute.
+2020-04-15 12:48:30 => Non-partitioned "dim_songs" Parquet write took 716 ms to execute.
+2020-04-15 12:48:40 => "dim_artists" Parquet write took 9504 ms to execute.
+2020-04-15 12:48:40 => "process_song_data()" took 24252 ms to execute.
+2020-04-15 12:48:40 => "log_data" JSON ingestion took 88 ms to execute.
+2020-04-15 12:48:41 => "dim_users" Parquet write took 538 ms to execute.
+2020-04-15 12:48:51 => Partitioned "dim_time" Parquet write took 9146 ms to execute.
+2020-04-15 12:48:57 => Non-partitioned "dim_time" Parquet write took 6133 ms to execute.
+2020-04-15 12:48:57 => "dim_songs" JSON ingestion took 223 ms to execute.
+2020-04-15 12:48:57 => "dim_artists" JSON ingestion took 144 ms to execute.
+2020-04-15 12:49:00 => Partitioned "fact_songplays" Parquet write took 2390 ms to execute.
+2020-04-15 12:49:01 => Non-partitioned "fact_songplays" Parquet write took 1555 ms to execute.
+2020-04-15 12:49:01 => "process_log_data()" took 21644 ms to execute.
+2020-04-15 12:49:01 => "main()" took 60741 ms to execute.
+
+
+    +-----------------------------------------------------------------------------+ 
+
+        SCRIPT EXECUTION FINISHED AT 2020-04-15 12:49:01 UTC.
+
+    +-----------------------------------------------------------------------------+
+

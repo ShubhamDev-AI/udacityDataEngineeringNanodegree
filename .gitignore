@@ -8,9 +8,9 @@ database_connection_credentials.txt
 # DataWarehouse config file
 # /Exercises Notebooks/03 Data Warehouses/*.cfg
 
-# all config files are ignored
+# ALL config files are ignored
 **/*.cfg
 
 # all "ipynb_checkpoints" are ignored
 .ipynb_checkpoints
-**/.ipynb_checkpoints/*
+**/*.ipynb_checkpoints

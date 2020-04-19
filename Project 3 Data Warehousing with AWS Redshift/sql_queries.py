@@ -266,7 +266,7 @@ user_table_insert = """
 descriptive data.
 
     For each user row, the attribute "previous_level" shows what level this
-same user had when the imediately precending event occurred. If a user has no 
+same user had when the imediately preceding event occurred. If a user has no 
 previous event it means the row points to a user's first recorded event and this 
 is explicited by the "user first event" text contained in the "previous_level" 
 attribute in these cases.

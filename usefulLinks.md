@@ -134,4 +134,36 @@ CAP stands for "Consistency", "Availability" and "Partition Tolerance":
 
 * [AWS S3 Credentials usage in Spark](<http://wrschneider.github.io/2019/02/02/spark-credentials-file.html>)
 
-* [Default AWS Environment Variables](<https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-envvars.html>)
+* [Default AWS Environment Variables](<https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-envvars.html>)  
+
+* [AWS EMR FAQ's](<https://aws.amazon.com/emr/faqs/>)
+
+* [EMR Notebooks: Install Libraries](<https://aws.amazon.com/blogs/big-data/install-python-libraries-on-a-running-cluster-with-emr-notebooks/>)  
+
+* [RDD Transformations and Actions explaned](<https://trongkhoanguyen.com/spark/understand-rdd-operations-transformations-and-actions/>)
+
+* [Spark Concepts Overview](<http://queirozf.com/entries/spark-concepts-overview-clusters-jobs-stages-tasks-etc>)
+
+* [Spark Maximum Recommended Task Size](<https://stackoverflow.com/questions/28878654/spark-using-python-how-to-resolve-stage-x-contains-a-task-of-very-large-size-x?rq=1>)
+
+## General Materials
+
+### Python Programming  
+
+* [Scope of Variables in Python](<https://www.datacamp.com/community/tutorials/scope-of-variables-python>)  
+
+* [Google Docstring Style](<https://sphinxcontrib-napoleon.readthedocs.io/en/latest/example_google.html>)
+
+* [DataCamp Python Functions Tutorial](<https://www.datacamp.com/community/tutorials/functions-python-tutorial>)
+
+* [`*args` and `**kwargs` in Python](<https://realpython.com/python-kwargs-and-args/>)
+
+* [Iterate through Python Dictionaries](<https://realpython.com/iterate-through-dictionary-python/>)
+
+* [](<>)  
+
+* [](<>)  
+
+* [](<>)  
+
+* [](<>)
