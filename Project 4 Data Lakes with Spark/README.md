@@ -1,4 +1,4 @@
-# Data Lake with Apache Spark  
+# Data Lakes and Apache Spark  
   
 ![Apache Spark Logo](<apacheSparkLogo.png>)  
 
@@ -24,4 +24,16 @@ It'll be read by the `etl.py` script to access the necessary S3 Buckets.
 
 ### 2. `etl.py`  
   
-The main project script, it is responsible for the entire ETL pipeline execution. It imports many `PySpark SQL` module classes, and other standard python libraries required for its execution.
+The main project script, it is responsible for the entire ETL pipeline execution. It imports many `PySpark SQL` module classes, and other standard python libraries required for its execution.  
+  
+## Conclusions  
+  
+### Table Partitioning  
+
+### Avoiding Redundant Ingestion and ETL  
+
+### Know Your Data: Always Declare its Schema before Ingestion  
+
+
+
+![Execution Comparisons](<etlScriptExecutionAnalysis.PNG>)

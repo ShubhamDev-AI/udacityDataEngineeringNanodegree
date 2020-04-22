@@ -146,9 +146,9 @@ CAP stands for "Consistency", "Availability" and "Partition Tolerance":
 
 * [Spark Maximum Recommended Task Size](<https://stackoverflow.com/questions/28878654/spark-using-python-how-to-resolve-stage-x-contains-a-task-of-very-large-size-x?rq=1>)
 
-* [How Apache Hudi Works](<https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-hudi-how-it-works.html>)  
+* [Spark SQL StructType](<https://jaceklaskowski.gitbooks.io/mastering-spark-sql/spark-sql-StructType.html>)  
 
-* [List S3 Bucket Contents with Boto3](<https://stackoverflow.com/questions/35803027/retrieving-subfolders-names-in-s3-bucket-from-boto3>)
+* [Add StructType Columns to Spark DataFrames](<https://medium.com/@mrpowers/adding-structtype-columns-to-spark-dataframes-b44125409803>)  
 
 ## General Materials
 
@@ -162,7 +162,11 @@ CAP stands for "Consistency", "Availability" and "Partition Tolerance":
 
 * [`*args` and `**kwargs` in Python](<https://realpython.com/python-kwargs-and-args/>)
 
-* [Iterate through Python Dictionaries](<https://realpython.com/iterate-through-dictionary-python/>)
+* [Iterate through Python Dictionaries](<https://realpython.com/iterate-through-dictionary-python/>)  
+
+* [How Apache Hudi Works](<https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-hudi-how-it-works.html>)  
+
+* [List S3 Bucket Contents with Boto3](<https://stackoverflow.com/questions/35803027/retrieving-subfolders-names-in-s3-bucket-from-boto3>)
 
 * [](<>)  
 
