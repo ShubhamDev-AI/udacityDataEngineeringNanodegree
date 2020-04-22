@@ -1,7 +1,7 @@
 
-# Data Warehousing with AWS Redshift
-
-![AWS Redshift logo](images/AWSRedshiftlogo.png)
+# Data Warehousing with AWS Redshift  
+  
+![AWS Redshift logo](AWSRedshiftlogo.png)
 
 This folder contains scripts relating to creation and ETL processes of the `sparkify_dw` database and all of its tables.  
   
@@ -11,9 +11,9 @@ This folder contains scripts relating to creation and ETL processes of the `spar
 
  The database has two schemas (Entity Relationship Diagram available below):
 * `staging`: raw data ingestion happens here.
-* `public`: modeled as a dimensional Star Schema, curated data sits here after an ELT process takes place.
-
-![ER Diagram](images/stagingAndStarSchemaERDiagram.png)
+* `public`: modeled as a dimensional Star Schema, curated data sits here after an ELT process takes place.  
+  
+![ER Diagram](stagingAndStarSchemaERDiagram.png)
 
 **Data distribution accross cluster nodes:**  
 
