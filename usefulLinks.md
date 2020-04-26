@@ -60,7 +60,9 @@ CAP stands for "Consistency", "Availability" and "Partition Tolerance":
 
 * [Citus' `cstore_fdw` Postgres columnar storage extension](<https://github.com/citusdata/cstore_fdw>)
 
-### AWS Resources
+### AWS Resources  
+
+* [What is Amazon Redshift?](<https://docs.aws.amazon.com/redshift/latest/mgmt/welcome.html>)
 
 * [IAM Role for Amazon Redshift setup](<https://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-create-an-iam-role.html>)
 
@@ -149,7 +151,29 @@ CAP stands for "Consistency", "Availability" and "Partition Tolerance":
 * [Spark SQL StructType](<https://jaceklaskowski.gitbooks.io/mastering-spark-sql/spark-sql-StructType.html>)  
 
 * [Add StructType Columns to Spark DataFrames](<https://medium.com/@mrpowers/adding-structtype-columns-to-spark-dataframes-b44125409803>)  
+  
+## Data Pipelines & Apache Airflow
 
+### Complimentary Reads  
+
+* [ETL vs ELT](<https://www.quora.com/When-is-ELT-preferred-over-ETL-seems-that-all-can-be-done-in-ETL>)  
+
+* [Apache Kafka Intro](<https://kafka.apache.org/intro>)  
+
+* [Airflow Documentation](<https://airflow.apache.org/docs/stable/>)  
+  
+* [**Airflow Python API Reference**](<https://airflow.apache.org/docs/stable/_api/index.html>)  
+
+* [Airflow Tutorial](<https://airflow.apache.org/docs/stable/tutorial.html>)
+  
+* [Airflow's `DAG()` Class Docs](<https://airflow.apache.org/docs/stable/_api/airflow/models/dag/index.html>)  
+  
+* [](<>)  
+  
+* [](<>)  
+  
+* [](<>)  
+  
 ## General Materials
 
 ### Python Programming  
@@ -168,10 +192,16 @@ CAP stands for "Consistency", "Availability" and "Partition Tolerance":
 
 * [List S3 Bucket Contents with Boto3](<https://stackoverflow.com/questions/35803027/retrieving-subfolders-names-in-s3-bucket-from-boto3>)
 
-* [](<>)  
+* [Python's `logging` library](<https://docs.python.org/3/library/logging.html>)  
 
-* [](<>)  
+* [Basic `logging` library tutorial](<https://docs.python.org/3/howto/logging.html#logging-basic-tutorial>)  
 
-* [](<>)  
+* [`functools` library: functions and operations on callable objects ](<https://docs.python.org/3/library/functools.html>)  
 
-* [](<>)
+### GitHub
+
+* [Udacity's "Writing README Files" Course](<https://classroom.udacity.com/courses/ud777>)  
+
+* [Udacity's Blog: Open Source Projects](<https://blog.udacity.com/2013/10/get-started-with-open-source-projects.html>)  
+
+* [Udacity's `Git Commit Message Style Guide`](<https://udacity.github.io/git-styleguide/>)  

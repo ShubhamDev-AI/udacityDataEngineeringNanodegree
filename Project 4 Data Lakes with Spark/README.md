@@ -30,7 +30,7 @@ The main project script, it is responsible for the entire ETL pipeline execution
 
 In spite of dealing entirely with small JSON files, this project proved to be an invaluable learning experience of Spark's `PySpark` API and how it compares to manipulating data with SQL.  
   
-It was very interesting to provision an AWS EMR Cluster, SSH into it, execute the project and watch how performance could scale by adding more worker nodes. But a good deal of Linux Command Line had to be learned prior to it for things to start falling in place so I simultaneously resorted to an additional Linux course in another MOOC platform. 
+It was very interesting to provision an AWS EMR Cluster, SSH into it, execute the project and watch how performance could scale by adding more worker nodes. But a good deal of Linux Command Line had to be learned prior to it for things to start falling into place so I simultaneously resorted to an additional Linux course in another MOOC platform.  
   
 Additionally I'd like to share three experiences that caught my attention during development:
   
