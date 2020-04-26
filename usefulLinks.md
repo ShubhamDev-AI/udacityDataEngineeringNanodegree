@@ -205,3 +205,5 @@ CAP stands for "Consistency", "Availability" and "Partition Tolerance":
 * [Udacity's Blog: Open Source Projects](<https://blog.udacity.com/2013/10/get-started-with-open-source-projects.html>)  
 
 * [Udacity's `Git Commit Message Style Guide`](<https://udacity.github.io/git-styleguide/>)  
+
+* [Git: set `nano` as default editor](<https://www.oreilly.com/library/view/gitlab-cookbook/9781783986842/apas07.html>)  
