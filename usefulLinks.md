@@ -168,10 +168,18 @@ CAP stands for "Consistency", "Availability" and "Partition Tolerance":
   
 * [Airflow's `DAG()` Class Docs](<https://airflow.apache.org/docs/stable/_api/airflow/models/dag/index.html>)  
   
-* [](<>)  
+* [Airflow Macros & Context Variables](<https://airflow.apache.org/docs/stable/macros-ref>)  
   
-* [](<>)  
+* [blog: The Zen of Python and Apache Airflow](<https://godatadriven.com/blog/the-zen-of-python-and-apache-airflow/>)  
   
+* [Airflow FAQ's](<https://airflow.apache.org/docs/stable/faq.html>)  
+
+* [](<>)  
+
+* [](<>)  
+
+* [](<>)  
+
 * [](<>)  
   
 ## General Materials
