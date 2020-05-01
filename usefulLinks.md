@@ -92,6 +92,14 @@ CAP stands for "Consistency", "Availability" and "Partition Tolerance":
 
 ## Data Lakes & Spark  
 
+### Concepts & Complimentary Reads
+
+* [Top 5 Differences: Data Lake vs Data Warehouse](<https://www.blue-granite.com/blog/bid/402596/top-five-differences-between-data-lakes-and-data-warehouses>)  
+
+* [What is a Data Lake?](<https://www.forbes.com/sites/bernardmarr/2018/08/27/what-is-a-data-lake-a-super-simple-explanation-for-anyone/#264b60676e00>)  
+
+* [When to load relational data to a Data Lake](<https://www.sqlchick.com/entries/2018/11/13/when-should-we-load-relational-data-to-a-data-lake>)   
+
 ### Tools and Languages
 
 * [Apache Spark Website](<http://spark.apache.org/docs/latest/index.html>)
@@ -160,9 +168,11 @@ CAP stands for "Consistency", "Availability" and "Partition Tolerance":
 
 * [Apache Kafka Intro](<https://kafka.apache.org/intro>)  
 
-* [Airflow Documentation](<https://airflow.apache.org/docs/stable/>)  
+* [**READ THIS FIRST:** Apache Airflow Concepts](<https://airflow.apache.org/docs/stable/concepts.html#>)
   
 * [**Airflow Python API Reference**](<https://airflow.apache.org/docs/stable/_api/index.html>)  
+
+* [Airflow Documentation](<https://airflow.apache.org/docs/stable/>)  
 
 * [Airflow Tutorial](<https://airflow.apache.org/docs/stable/tutorial.html>)
   
@@ -174,11 +184,13 @@ CAP stands for "Consistency", "Availability" and "Partition Tolerance":
   
 * [Airflow FAQ's](<https://airflow.apache.org/docs/stable/faq.html>)  
 
-* [](<>)  
+* [Airflow's Common Pitfalls](<https://cwiki.apache.org/confluence/display/AIRFLOW/Common+Pitfalls>)  
 
-* [](<>)  
+* [Airflow Tips, Tricks and Pitfalls](<https://medium.com/handy-tech/airflow-tips-tricks-and-pitfalls-9ba53fba14eb#.2zt0krkn2>)  
 
-* [](<>)  
+* [Python's `pendulum` library (used in some of Airflow's Context Variables)](<https://pendulum.eustace.io/docs/1.x/#introduction>)  
+
+* [Kill tasks from Airflow's UI](<https://stackoverflow.com/questions/43631693/how-to-stop-kill-airflow-tasks-from-the-ui>)  
 
 * [](<>)  
   
@@ -206,6 +218,12 @@ CAP stands for "Consistency", "Availability" and "Partition Tolerance":
 
 * [`functools` library: functions and operations on callable objects ](<https://docs.python.org/3/library/functools.html>)  
 
+* [Timezones and Python](https://julien.danjou.info/python-and-timezones/)  
+
+* [What are Python Namespaces all about](<https://stackoverflow.com/questions/3913217/what-are-python-namespaces-all-about/3913488#3913488>)  
+
+* [Namespaces and Scope in Python](<https://www.geeksforgeeks.org/namespaces-and-scope-in-python/>)
+
 ### GitHub
 
 * [Udacity's "Writing README Files" Course](<https://classroom.udacity.com/courses/ud777>)  
@@ -215,3 +233,13 @@ CAP stands for "Consistency", "Availability" and "Partition Tolerance":
 * [Udacity's `Git Commit Message Style Guide`](<https://udacity.github.io/git-styleguide/>)  
 
 * [Git: set `nano` as default editor](<https://www.oreilly.com/library/view/gitlab-cookbook/9781783986842/apas07.html>)  
+
+* [Awesome README](<https://github.com/matiassingers/awesome-readme>)  
+
+* [Writing a good README](<https://bulldogjob.com/news/449-how-to-write-a-good-readme-for-your-github-project>)  
+
+* [Beginners Guide to a Kickass README](<https://medium.com/@meakaakka/a-beginners-guide-to-writing-a-kickass-readme-7ac01da88ab3>)  
+
+### Other
+
+* [What is `UTC` or `GMT` time?](<https://www.nhc.noaa.gov/aboututc.shtml>)
