@@ -192,6 +192,18 @@ CAP stands for "Consistency", "Availability" and "Partition Tolerance":
 
 * [Kill tasks from Airflow's UI](<https://stackoverflow.com/questions/43631693/how-to-stop-kill-airflow-tasks-from-the-ui>)  
 
+* [Airflow's date Macros and `execution_date`](<https://diogoalexandrefranco.github.io/about-airflow-date-macros-ds-and-execution-date/>)  
+
+* [Useful Data Engineering Resources](<https://diogoalexandrefranco.github.io/data-engineering-resources/>)  
+
+* [`Airflow contrib` GitHub Repo](<https://github.com/apache/airflow/tree/master/airflow/contrib>)  
+
+* [](<>)  
+
+* [](<>)  
+
+* [](<>)  
+
 * [](<>)  
   
 ## General Materials
