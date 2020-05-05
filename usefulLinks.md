@@ -196,9 +196,9 @@ CAP stands for "Consistency", "Availability" and "Partition Tolerance":
 
 * [Useful Data Engineering Resources](<https://diogoalexandrefranco.github.io/data-engineering-resources/>)  
 
-* [`Airflow contrib` GitHub Repo](<https://github.com/apache/airflow/tree/master/airflow/contrib>)  
+* [Airflow Contrib GitHub Repo](<https://github.com/apache/airflow/tree/master/airflow/contrib>)  
 
-* [](<>)  
+* [Useful Airflow's Resources](<https://github.com/jghoman/awesome-apache-airflow>)  
 
 * [](<>)  
 
