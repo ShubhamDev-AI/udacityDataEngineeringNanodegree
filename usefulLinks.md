@@ -166,6 +166,8 @@ CAP stands for "Consistency", "Availability" and "Partition Tolerance":
 
 * [ETL vs ELT](<https://www.quora.com/When-is-ELT-preferred-over-ETL-seems-that-all-can-be-done-in-ETL>)  
 
+* [ETL vs ELT: 5 Critical Differences](<https://www.xplenty.com/blog/etl-vs-elt/>)
+
 * [Apache Kafka Intro](<https://kafka.apache.org/intro>)  
 
 * [**READ THIS FIRST:** Apache Airflow Concepts](<https://airflow.apache.org/docs/stable/concepts.html#>)
@@ -200,9 +202,9 @@ CAP stands for "Consistency", "Availability" and "Partition Tolerance":
 
 * [Useful Airflow's Resources](<https://github.com/jghoman/awesome-apache-airflow>)  
 
-* [](<>)  
+* [Other Pipeline Orchestration Tools](<https://github.com/pditommaso/awesome-pipeline>)  
 
-* [](<>)  
+* [Orchestration Tools Comparison](<https://xunnanxu.github.io/2018/04/13/Workflow-Processing-Engine-Overview-2018-Airflow-vs-Azkaban-vs-Conductor-vs-Oozie-vs-Amazon-Step-Functions/>)  
 
 * [](<>)  
   
