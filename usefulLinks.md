@@ -232,7 +232,7 @@ CAP stands for "Consistency", "Availability" and "Partition Tolerance":
 
 * [`functools` library: functions and operations on callable objects ](<https://docs.python.org/3/library/functools.html>)  
 
-* [Timezones and Python](https://julien.danjou.info/python-and-timezones/)  
+* [Timezones and Python](<https://julien.danjou.info/python-and-timezones/>)  
 
 * [What are Python Namespaces all about](<https://stackoverflow.com/questions/3913217/what-are-python-namespaces-all-about/3913488#3913488>)  
 
@@ -254,6 +254,20 @@ CAP stands for "Consistency", "Availability" and "Partition Tolerance":
 
 * [Beginners Guide to a Kickass README](<https://medium.com/@meakaakka/a-beginners-guide-to-writing-a-kickass-readme-7ac01da88ab3>)  
 
+### Docker
+
+* [Getting Started with Airflow Using Docker](<https://towardsdatascience.com/getting-started-with-airflow-using-docker-cd8b44dbff98>)
+
+* [Digging Into Data Science Tools: Docker](<http://www.marknagelberg.com/digging-into-data-science-tools-docker/>)
+
+* [Lecture: Docker For Data Scientists](<https://www.youtube.com/watch?v=GOW6yQpxOIg&feature=youtu.be&t=1087>)
+
+* [Lecture: Data Science Workflows using Docker Containers](<https://www.youtube.com/watch?v=oO8n3y23b6M>)
+
+* [](<>)
+
 ### Other
 
 * [What is `UTC` or `GMT` time?](<https://www.nhc.noaa.gov/aboututc.shtml>)
+
+* [Staging Environments in Software Development](<https://searchsoftwarequality.techtarget.com/definition/staging-environment#:~:text=A%20staging%20environment%20(stage)%20is,like%20environment%20before%20application%20deployment.>)

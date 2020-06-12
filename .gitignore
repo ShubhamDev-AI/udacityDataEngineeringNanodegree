@@ -14,3 +14,7 @@ database_connection_credentials.txt
 # all "ipynb_checkpoints" are ignored
 .ipynb_checkpoints
 **/*.ipynb_checkpoints
+
+# ignore auxiliary docker start/run files
+dockerRunAirflowWithVolume.bat
+dockerStopStartAirflow.bat
