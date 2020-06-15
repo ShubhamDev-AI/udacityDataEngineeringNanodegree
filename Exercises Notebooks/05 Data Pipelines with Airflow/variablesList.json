@@ -1,0 +1,4 @@
+{
+     "s3_bucket":"udacity-dend"
+    ,"s3_prefix":"data-pipelines"
+}

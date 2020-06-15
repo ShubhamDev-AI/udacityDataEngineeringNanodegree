@@ -57,24 +57,33 @@ LOCATION_TRAFFIC_SQL = """
 BEGIN;
 DROP TABLE IF EXISTS station_traffic;
 CREATE TABLE station_traffic AS
-SELECT
-    DISTINCT(t.from_station_id) AS station_id,
-    t.from_station_name AS station_name,
-    num_departures,
-    num_arrivals
-FROM trips t
-JOIN (
     SELECT
-        from_station_id,
-        COUNT(from_station_id) AS num_departures
-    FROM trips
-    GROUP BY from_station_id
-) AS fs ON t.from_station_id = fs.from_station_id
-JOIN (
-    SELECT
-        to_station_id,
-        COUNT(to_station_id) AS num_arrivals
-    FROM trips
-    GROUP BY to_station_id
-) AS ts ON t.from_station_id = ts.to_station_id
+        DISTINCT(stations.from_station_id) AS station_id,
+        stations.from_station_name AS station_name,
+        departures.num_departures,
+        arrivals.num_arrivals
+    FROM 
+        trips AS stations
+    INNER JOIN (
+        -- departures from station
+        SELECT
+            from_station_id,
+            COUNT(from_station_id) AS num_departures
+        FROM
+            trips
+        GROUP BY
+            from_station_id
+    ) AS departures 
+    ON 
+        stations.from_station_id = departures.from_station_id
+    INNER JOIN (
+        -- arrivals in station
+        SELECT
+            to_station_id,
+            COUNT(to_station_id) AS num_arrivals
+        FROM trips
+        GROUP BY to_station_id
+    ) AS arrivals 
+    ON
+        stations.from_station_id = arrivals.to_station_id
 """

@@ -10,11 +10,18 @@ database_connection_credentials.txt
 
 # ALL config files are ignored
 **/*.cfg
+*.cfg
 
 # all "ipynb_checkpoints" are ignored
 .ipynb_checkpoints
 **/*.ipynb_checkpoints
 
-# ignore auxiliary docker start/run files
+# cache files
+__pycache__
+
+# ignore auxiliary docker start/run files and/or sensitve data files
 dockerRunAirflowWithVolume.bat
+CREATE_dockerRunAirflowWithVolume.bat
 dockerStopStartAirflow.bat
+manageAirflowConnections.sh
+startAirflowContainer.bat
