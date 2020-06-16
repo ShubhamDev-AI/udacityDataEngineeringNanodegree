@@ -240,6 +240,10 @@ CAP stands for "Consistency", "Availability" and "Partition Tolerance":
 
 * [Namespaces and Scope in Python](<https://www.geeksforgeeks.org/namespaces-and-scope-in-python/>)
 
+* [Python Packing and Unpacking Tutorial](<https://stackabuse.com/unpacking-in-python-beyond-parallel-assignment/#:~:text=Introduction,the%20iterable%20unpacking%20operator%2C%20*%20.>)
+
+* [PEP 448: Additional Unpacking Generalizations](<https://www.python.org/dev/peps/pep-0448/>)
+
 ### GitHub
 
 * [Udacity's "Writing README Files" Course](<https://classroom.udacity.com/courses/ud777>)  
