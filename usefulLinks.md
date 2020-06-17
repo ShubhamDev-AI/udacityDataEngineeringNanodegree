@@ -244,6 +244,8 @@ CAP stands for "Consistency", "Availability" and "Partition Tolerance":
 
 * [PEP 448: Additional Unpacking Generalizations](<https://www.python.org/dev/peps/pep-0448/>)
 
+* [Exception and Error Handling in Python](<https://www.datacamp.com/community/tutorials/exception-handling-python>)
+
 ### GitHub
 
 * [Udacity's "Writing README Files" Course](<https://classroom.udacity.com/courses/ud777>)  
