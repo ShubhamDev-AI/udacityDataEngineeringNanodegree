@@ -19,7 +19,6 @@ from airflow.contrib.hooks.aws_hook import AwsHook
     to Tasks;
         - ensure data quality by implementing a simple function to check whether
     data has been loaded by the pipeline;
-        -  
 ----------------------------------------------------------------------------"""
 
 bulkLoadDag = DAG(

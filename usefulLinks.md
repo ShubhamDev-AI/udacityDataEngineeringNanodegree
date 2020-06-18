@@ -208,6 +208,10 @@ CAP stands for "Consistency", "Availability" and "Partition Tolerance":
 
 * [Orchestration Tools Comparison](<https://xunnanxu.github.io/2018/04/13/Workflow-Processing-Engine-Overview-2018-Airflow-vs-Azkaban-vs-Conductor-vs-Oozie-vs-Amazon-Step-Functions/>)  
 
+* [Airflow Git Repo: `providers` folder](<https://github.com/apache/airflow/tree/master/airflow/providers>)  
+
+* [](<>)  
+
 * [](<>)  
   
 ## General Materials
@@ -245,6 +249,12 @@ CAP stands for "Consistency", "Availability" and "Partition Tolerance":
 * [PEP 448: Additional Unpacking Generalizations](<https://www.python.org/dev/peps/pep-0448/>)
 
 * [Exception and Error Handling in Python](<https://www.datacamp.com/community/tutorials/exception-handling-python>)
+
+* [Decorators in Python](<https://www.datacamp.com/community/tutorials/decorators-python>)
+
+* [Python `Class` and `__init__` Tutorial](<https://micropyramid.com/blog/understand-self-and-__init__-method-in-python-class/>)
+
+* [](<>)
 
 ### GitHub
 
