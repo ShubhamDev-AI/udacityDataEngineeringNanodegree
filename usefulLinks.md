@@ -254,6 +254,10 @@ CAP stands for "Consistency", "Availability" and "Partition Tolerance":
 
 * [Python `Class` and `__init__` Tutorial](<https://micropyramid.com/blog/understand-self-and-__init__-method-in-python-class/>)
 
+* [Inheritance with Python's `super()` function](<https://realpython.com/python-super/>)
+
+* [](<>)
+
 * [](<>)
 
 ### GitHub

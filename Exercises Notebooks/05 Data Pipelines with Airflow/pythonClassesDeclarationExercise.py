@@ -4,7 +4,7 @@
 
         Class is a BLUEPRINT for individual objects with exact behaviour. With
     a Class it's possible to define attributes and methods which can be reused
-    by accross Class' instances. In other words, Classes allow reuse of code.
+    across its instances. In other words, Classes allow reuse of code.
 
 
     OBJECT: EXTERNAL REF
@@ -29,7 +29,7 @@
     created/derived from Class.
         "__init__" allows the Class to initialize all of its methods and 
     attributes. In object oriented concepts, it is known as a CONSTRUCTOR.
-        Docs available here https://bit.ly/2N9F1tu
+        Docs available at https://bit.ly/2N9F1tu
 
 
 ----------------------------------------------------------------------------"""
