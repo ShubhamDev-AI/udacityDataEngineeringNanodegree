@@ -31,10 +31,17 @@ class S3ToRedshiftOperator(BaseOperator):
       
     ------------------------------------------------------------------------"""
 
-    # IMPORTANT
+    # IMPORTANT:
     # create variable that determines JINJA templatable fields 
     # elements listed in this variable will be allowed to interact with 
     # Airflow Template Variables listed here: https://bit.ly/2Z7Ykt5
+    #
+    # NOTES:
+    # The contents of these "templated_fields" can be seen in Airflow's UI
+    # under the following options path:
+    #
+    # Dag Instance -> Task Instance -> Rendered -> Rendered Templates
+    #
     template_fields = ("s3_key",)
 
     #   create variable that holds a standard Redshift COPY statement for later
@@ -74,7 +81,8 @@ class S3ToRedshiftOperator(BaseOperator):
         ,truncate=False
         ,s3_bucket=""
         ,s3_key=""
-        ,delimiter=""
+        # delimiter defaults to "," (comma) when no user input is received
+        ,delimiter=","
         # default "ignore_headers" behaviour: True
         ,ignore_headers=1
         ,*args

@@ -258,7 +258,7 @@ CAP stands for "Consistency", "Availability" and "Partition Tolerance":
 
 * [Google Python Style Guide](<https://github.com/google/styleguide/blob/gh-pages/pyguide.md>)
 
-* [](<>)
+* [`python-sql` module](<https://pypi.org/project/python-sql/>)
 
 ### GitHub
 
