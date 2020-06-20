@@ -256,7 +256,7 @@ CAP stands for "Consistency", "Availability" and "Partition Tolerance":
 
 * [Inheritance with Python's `super()` function](<https://realpython.com/python-super/>)
 
-* [](<>)
+* [Google Python Style Guide](<https://github.com/google/styleguide/blob/gh-pages/pyguide.md>)
 
 * [](<>)
 

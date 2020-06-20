@@ -20,5 +20,5 @@ class CustomPlugins(AirflowPlugin):
     # Airflow's "BaseOperator" Class.
     operators = [
          operators.HasRowsOperator
-        # ,operators.S3ToRedshiftOperator
+        ,operators.S3ToRedshiftOperator
     ]
