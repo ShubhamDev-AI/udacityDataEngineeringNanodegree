@@ -21,4 +21,5 @@ class CustomPlugins(AirflowPlugin):
     operators = [
          operators.HasRowsOperator
         ,operators.S3ToRedshiftOperator
+        ,operators.FactsCalculatorOperator
     ]
