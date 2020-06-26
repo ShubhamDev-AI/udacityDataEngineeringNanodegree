@@ -293,3 +293,5 @@ CAP stands for "Consistency", "Availability" and "Partition Tolerance":
 * [What is `UTC` or `GMT` time?](<https://www.nhc.noaa.gov/aboututc.shtml>)
 
 * [Staging Environments in Software Development](<https://searchsoftwarequality.techtarget.com/definition/staging-environment#:~:text=A%20staging%20environment%20(stage)%20is,like%20environment%20before%20application%20deployment.>)
+
+* [Amazon S3 in a Nutshell](https://medium.com/@mansikapoor333/amazon-s3-in-a-nutshell-ad9e5efca5bf)
