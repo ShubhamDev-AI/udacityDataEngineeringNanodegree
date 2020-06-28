@@ -50,7 +50,7 @@ print("retangulo's Area equals:",retangulo.area())
 
 
 #------------------------------------------------------------------------------
-#   Use Python's "super()" function to create a Classe that inherits methods
+#   Use Python's "super()" function to create a Class that inherits methods
 # from other Class.
 #------------------------------------------------------------------------------
 
@@ -88,7 +88,7 @@ class Cube(NewSquare):
     # anything different than what already happens in "NewSquare", from which
     # it inherits everything.
     #   In this situation, its superclass's "__init__" method is then 
-    # automatically called.
+    # automatically called and executed.
     #   "super()" then returns a delegate object to the parent Class, which
     # allows you to call its methods directly.
 
