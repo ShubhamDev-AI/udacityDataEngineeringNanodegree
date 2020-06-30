@@ -3,9 +3,11 @@ from airflow.hooks.postgres_hook import PostgresHook
 from airflow.models import BaseOperator
 from airflow.utils.decorators import apply_defaults
 
-class StageJsonFromS3ToRedshift(BaseOperator):
-
+class StageJsonToRedshiftOperator(BaseOperator):
     """
+    Use this Operator to ingest JSON files stored on S3 into a Redshift database
+    instance.
+    
     :param aws_region: AWS Region where services used by this Class are located.
     :type aws_region: string
 
@@ -70,7 +72,7 @@ class StageJsonFromS3ToRedshift(BaseOperator):
         ,**kwargs
     ):
 
-        super(StageJsonFromS3ToRedshift, self).__init__(*args, **kwargs)
+        super(StageJsonToRedshiftOperator, self).__init__(*args, **kwargs)
         self.aws_region=aws_region
         self.redshift_conn_id=redshift_conn_id
         self.aws_credentials_id=aws_credentials_id
@@ -101,7 +103,7 @@ class StageJsonFromS3ToRedshift(BaseOperator):
             pgHookInstance.run(f"""
                 CREATE SCHEMA IF NOT EXISTS {self.schema};
 
-                DROP TABLE IF EXISTS {self.schema}.{self.table};
+                DROP TABLE IF EXISTS {self.schema}.{self.table} CASCADE;
                 -- also execute received create table statement
                 {self.create_table_statement}
             """)

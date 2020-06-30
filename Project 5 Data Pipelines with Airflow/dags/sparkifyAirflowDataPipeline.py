@@ -5,7 +5,7 @@ from datetime import datetime, timedelta
 from airflow.operators.dummy_operator import DummyOperator
 
 from airflow.operators import (
-     StageJsonFromS3ToRedshift
+     StageJsonToRedshiftOperator
     ,LoadFactOperator
     ,LoadDimensionOperator
     ,DataQualityOperator
@@ -24,7 +24,7 @@ defaultArgumentsDict = {
     ,'catchup':False
     ,'depends_on_past':False
     ,'retries':3
-    ,'retry_delay':timedelta(seconds=10)
+    ,'retry_delay':timedelta(seconds=300)
     ,'email_on_retry':False
 }
 
@@ -42,7 +42,7 @@ sparkifyPipeline = DAG(
 
 startExecution = DummyOperator(task_id='startExecution',  dag=sparkifyPipeline)
 
-stageEventLogsToRedshift = StageJsonFromS3ToRedshift(
+stageEventLogsToRedshift = StageJsonToRedshiftOperator(
      task_id='stageEventLogsToRedshift'
     ,aws_region="us-west-2"
     ,redshift_conn_id="redshift"
@@ -57,7 +57,7 @@ stageEventLogsToRedshift = StageJsonFromS3ToRedshift(
     ,dag=sparkifyPipeline
 )
 
-stageSongsToRedshift = StageJsonFromS3ToRedshift(
+stageSongsToRedshift = StageJsonToRedshiftOperator(
      task_id='stageSongsToRedshift'
     ,aws_region="us-west-2"
     ,redshift_conn_id="redshift"
@@ -142,10 +142,13 @@ loadDimTime = LoadDimensionOperator(
     ,dag=sparkifyPipeline
 )
 
-# runDataQualityChecks = DataQualityOperator(
-#      task_id='runDataQualityChecks'
-#     ,dag=sparkifyPipeline
-# )
+checkFactTable = DataQualityOperator(
+     task_id='checkFactTable'
+    ,redshift_conn_id='redshift'
+    ,schema='public'
+    ,table='fact_songplays'
+    ,dag=sparkifyPipeline
+)
 
 endExecution = DummyOperator(task_id='endExecution',  dag=sparkifyPipeline)
 
@@ -158,17 +161,13 @@ parallelDimensionLoad = [
     ,loadDimArtists
     ,loadDimTime
 ]
-
 #   Chain Task dependencies inside a tuple to leverage better row formatting
 # thus improving script readability.
 startExecution >> parallelStagingLoad >> triggerParallelDimensionsLoad
 
 triggerParallelDimensionsLoad >> parallelDimensionLoad >> loadFactSongplays 
 
-loadFactSongplays >> endExecution
-
-# ATTENTION! FINAL VERSION LAST TASK DEPENDENCIES ROW BELOW
-# loadFactSongplays >> runDataQualityChecks >> endExecution
+loadFactSongplays >> checkFactTable >> endExecution
 
 
 

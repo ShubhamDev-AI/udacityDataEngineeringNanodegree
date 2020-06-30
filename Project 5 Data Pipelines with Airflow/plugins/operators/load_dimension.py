@@ -4,10 +4,20 @@ from airflow.utils.decorators import apply_defaults
 
 class LoadDimensionOperator(BaseOperator):
     """
+        Use this Operator to perform an INSERT SQL statement into a DIMENSION
+    table located in AWS Redshift.
+
     :param redshift_conn_id: An ID for an Airflow Connection that's already been
     created either programmatically or via Airflow's CLI or UI.
         It must point to an AWS Redshift database instance.
     :type redshift_conn_id: string
+
+    :param create_table_statement: A SQL CREATE TABLE statement for 'table'
+    parameter. The two DDL statements below are executed before prior to
+    'create_table_statement' being executed:
+        1. CREATE SCHEMA IF NOT EXISTS 'schema';
+        2. DROP TABLE IF EXISTS 'schema'.'table' CASCADE;
+    :type create_table_statement: string
 
     :param sql_insert_statement: A string containing one or more SQL INSERT 
     statements separated by ';' (semi-colon).
@@ -18,13 +28,10 @@ class LoadDimensionOperator(BaseOperator):
     
     :param table: name of the table targeted by 'sql_insert_statement'. 
     :type table: string
-    
-    :param create_table_statement: A SQL CREATE TABLE statement for 'table'
-    parameter. The two DDL statements below are executed before prior to
-    'create_table_statement' being executed:
-        1. CREATE SCHEMA IF NOT EXISTS 'schema';
-        2. DROP TABLE IF EXISTS 'schema'.'table';
-    :type create_table_statement: string
+
+    :param truncate: a boolean value indicating whether 'table' must
+    be truncated prior to being loaded.
+    :type truncate: bool
     """
 
     # Define Airflow's UI color for Tasks created from "LoadDimensionOperator" Class
@@ -37,12 +44,12 @@ class LoadDimensionOperator(BaseOperator):
     @apply_defaults
     def __init__(
          self
-        ,redshift_conn_id
-        ,create_table_statement
-        ,sql_insert_statement        
-        ,schema
-        ,table
-        ,truncate        
+        ,redshift_conn_id=""
+        ,create_table_statement=None
+        ,sql_insert_statement="" 
+        ,schema=""
+        ,table=""
+        ,truncate=False        
         ,*args
         ,**kwargs
     ):
@@ -82,7 +89,7 @@ class LoadDimensionOperator(BaseOperator):
             pgHookInstance.run(f"""
                 CREATE SCHEMA IF NOT EXISTS {self.schema};
 
-                DROP TABLE IF EXISTS {self.schema}.{self.table};
+                DROP TABLE IF EXISTS {self.schema}.{self.table}  CASCADE;
                 -- also execute received create table statement
                 {self.create_table_statement}
             """)
