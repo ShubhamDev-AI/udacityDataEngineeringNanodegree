@@ -39,7 +39,7 @@ class LoadDimensionOperator(BaseOperator):
 
     #   Define tuple with a list of all JINJA templatable variables within this
     # Class
-    #template_fields = ("sql_insert_statement")
+    template_fields = ("sql_insert_statement",)
 
     @apply_defaults
     def __init__(
@@ -111,7 +111,7 @@ class LoadDimensionOperator(BaseOperator):
         self.log.info(f"Executing INSERT statement on {self.schema}.{self.table}.")
 
         # make sure JINJA templates are rendered before execution
-        #rendered_dml_statement = self.sql_insert_statement.format(**context)
+        rendered_dml_statement = self.sql_insert_statement.format(**context)
 
         # execute SQL INSERT statement
-        pgHookInstance.run(self.sql_insert_statement)
+        pgHookInstance.run(rendered_dml_statement)

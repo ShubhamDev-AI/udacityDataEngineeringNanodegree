@@ -25,7 +25,7 @@ defaultArgumentsDict = {
 sparkifyPipeline = DAG(
          dag_id='sparkifyPipeline'
         ,default_args=defaultArgumentsDict
-        ,description='Load and transform data in Redshift with Airflow'
+        ,description='Orchestrate data load and processing tasks for moving data from S3 to Redshift.'
         ,schedule_interval='@hourly'
         ,max_active_runs=1
         # set "graph" as DAG default UI view
@@ -34,7 +34,10 @@ sparkifyPipeline = DAG(
         ,orientation='TB'
 )
 
-startExecution = DummyOperator(task_id='startExecution',  dag=sparkifyPipeline)
+startExecution = DummyOperator(
+     task_id='startExecution'
+    ,dag=sparkifyPipeline
+)
 
 stageEventLogsToRedshift = StageJsonToRedshiftOperator(
      task_id='stageEventLogsToRedshift'
@@ -139,14 +142,18 @@ loadDimTime = LoadDimensionOperator(
 checkFactTable = DataQualityOperator(
      task_id='checkFactTable'
     ,redshift_conn_id='redshift'
-    # send arbitrary query for DataQualityOperator to execute.
+    # send simple row count query for DataQualityOperator to execute.
     ,single_valued_result_query='SELECT COUNT(*) FROM public.fact_songplays'
+    # define result-range lower bound: one row at least
     ,query_result_range_start=1
+    # set 10 billion minus 1 as interval upper bound
     ,query_result_range_end=9999999999
     ,dag=sparkifyPipeline
 )
 
-endExecution = DummyOperator(task_id='endExecution',  dag=sparkifyPipeline)
+endExecution = DummyOperator(
+     task_id='endExecution'
+    ,dag=sparkifyPipeline)
 
 # create list object containing all Staging Area tables load Tasks
 parallelStagingLoad = [stageEventLogsToRedshift, stageSongsToRedshift]
@@ -157,7 +164,7 @@ parallelDimensionLoad = [
     ,loadDimArtists
     ,loadDimTime
 ]
-#   Chain Task dependencies inside a tuple to leverage better row formatting
+#   TIP: Chain Task dependencies inside a tuple to leverage better row formatting
 # thus improving script readability.
 startExecution >> parallelStagingLoad >> triggerParallelDimensionsLoad
 

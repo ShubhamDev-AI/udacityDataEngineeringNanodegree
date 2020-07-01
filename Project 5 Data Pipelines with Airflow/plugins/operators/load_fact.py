@@ -5,7 +5,7 @@ from airflow.hooks.postgres_hook import PostgresHook
 
 class LoadFactOperator(BaseOperator):
     """
-        Use this Operator to perform an INSERT SQL statement into a FACT table 
+        Use this Operator to perform an SQL INSERT statement into a FACT table 
     located in AWS Redshift.
 
     :param redshift_conn_id: An ID for an Airflow Connection that's already been
@@ -40,7 +40,7 @@ class LoadFactOperator(BaseOperator):
 
     #   Define tuple with a list of all JINJA templatable variables within this
     # Class
-    #template_fields = ("sql_insert_statement")
+    template_fields = ("sql_insert_statement",)
 
     @apply_defaults
     def __init__(
@@ -112,9 +112,9 @@ class LoadFactOperator(BaseOperator):
         self.log.info(f"Executing INSERT statement on {self.schema}.{self.table}.")
 
         # make sure JINJA templates are rendered before execution
-        #rendered_dml_statement = self.sql_insert_statement.format(**context)
+        rendered_dml_statement = self.sql_insert_statement.format(**context)        
 
         # execute SQL INSERT statement
-        pgHookInstance.run(self.sql_insert_statement)
+        pgHookInstance.run(rendered_dml_statement)
 
         

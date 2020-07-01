@@ -29,7 +29,7 @@ class DataQualityOperator(BaseOperator):
     result. It can be either one of the following types:
         - continuous: 3,1415 
         - discrete: 1, 500, n
-        - database-valid DATE: '2020-06-30' or '20200630'
+        - database-valid DATE: '2020-06-30' or '20200630' (valid Postgres' DATES)
     :type query_result_range_start: numeric or string
 
     :param query_result_range_end: maximum value expected (inclusive) as query
@@ -65,9 +65,9 @@ class DataQualityOperator(BaseOperator):
         # instantiate PostgresHook Class
         pgHookInstance = PostgresHook(postgres_conn_id=self.redshift_conn_id)
         # render JINJA templates in case any is present in "single_valued_result_query"
-        rendered_single_valued_result_query = self.single_valued_result_query.format(**context)
+        rendered_sql_query = self.single_valued_result_query.format(**context)
         # execute SQL query
-        dbListOfTuples = pgHookInstance.get_records(rendered_single_valued_result_query)
+        dbListOfTuples = pgHookInstance.get_records(rendered_sql_query)
 
         #   Check "dbListOfTuples" object length and also the first tuple 
         # returned from the database

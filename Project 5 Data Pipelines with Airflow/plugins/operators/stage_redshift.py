@@ -5,8 +5,8 @@ from airflow.utils.decorators import apply_defaults
 
 class StageJsonToRedshiftOperator(BaseOperator):
     """
-    Use this Operator to ingest JSON files stored on S3 into a Redshift database
-    instance.
+        Use this Operator to ingest JSON files stored on S3 into a Redshift
+    database instance.
     
     :param aws_region: AWS Region where services used by this Class are located.
     :type aws_region: string
@@ -30,7 +30,7 @@ class StageJsonToRedshiftOperator(BaseOperator):
     :param schema: 'redshift_conn_id' schema within which 'table' is located.
     :type schema: string
     
-    :param table: name of the table targeted by 'sql_insert_statement'. 
+    :param table: name of the table to be bulk loaded. 
     :type table: string
 
     :param jsonpaths_file: A valid path leading to a file containing the path
@@ -42,10 +42,10 @@ class StageJsonToRedshiftOperator(BaseOperator):
     :type truncate: bool
 
     :param create_table_statement: A SQL CREATE TABLE statement for 'table'
-    parameter. The two DDL statements below are executed before prior to
+    parameter. The two DDL statements below are executed prior to
     'create_table_statement' being executed:
         1. CREATE SCHEMA IF NOT EXISTS 'schema';
-        2. DROP TABLE IF EXISTS 'schema'.'table';
+        2. DROP TABLE IF EXISTS 'schema'.'table' CASCADE;
     :type create_table_statement: string
     """
 
