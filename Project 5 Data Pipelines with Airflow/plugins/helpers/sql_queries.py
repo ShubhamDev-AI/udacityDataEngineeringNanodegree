@@ -374,7 +374,7 @@ class SqlQueries:
         )
 
         SELECT
-            cte.timestamp AS start_time
+             cte.timestamp AS start_time
             ,EXTRACT(HOUR FROM cte.timestamp) AS hour
             ,EXTRACT(DAY FROM cte.timestamp) AS day
             ,EXTRACT(WEEK FROM cte.timestamp) AS week
@@ -389,6 +389,30 @@ class SqlQueries:
             cte.timestamp = dim_time.start_time
         WHERE
             dim_time.hour IS NULL
+        ;
+    """
+
+    dummyInsertIntoFactSongplays = """
+        INSERT INTO public.fact_songplays(
+             start_time
+            ,user_key
+            ,"level"
+            ,song_key
+            ,artist_key
+            ,session_id
+            ,location
+            ,user_agent
+        )
+
+        SELECT
+             GETDATE() AS start_time
+            ,1 AS user_key
+            ,'paid' AS "level"
+            ,'TRAAAAK128F9318786' AS song_key
+            ,'zehDasCouves' AS artist_key
+            ,1 AS session_id
+            ,'brotas' AS location
+            ,'fairi fox' AS user_agent
         ;
     """
 

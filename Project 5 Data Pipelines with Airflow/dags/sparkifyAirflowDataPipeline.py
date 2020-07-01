@@ -10,16 +10,10 @@ from airflow.operators import (
     ,LoadDimensionOperator
     ,DataQualityOperator
 )
-
 from helpers import SqlQueries
 
-# AWS_KEY = os.environ.get('AWS_KEY')
-# AWS_SECRET = os.environ.get('AWS_SECRET')
-
-executeDDL = True
-
 defaultArgumentsDict = {
-     'owner': 'hederSantos'
+     'owner': 'Heder Santos'
     ,'start_date': datetime(2019, 1, 12)
     ,'catchup':False
     ,'depends_on_past':False
@@ -38,7 +32,7 @@ sparkifyPipeline = DAG(
         ,default_view='graph'
         # set "Top to Bottom" as graph default layout
         ,orientation='TB'
-        )
+)
 
 startExecution = DummyOperator(task_id='startExecution',  dag=sparkifyPipeline)
 
@@ -145,8 +139,10 @@ loadDimTime = LoadDimensionOperator(
 checkFactTable = DataQualityOperator(
      task_id='checkFactTable'
     ,redshift_conn_id='redshift'
-    ,schema='public'
-    ,table='fact_songplays'
+    # send arbitrary query for DataQualityOperator to execute.
+    ,single_valued_result_query='SELECT COUNT(*) FROM public.fact_songplays'
+    ,query_result_range_start=1
+    ,query_result_range_end=9999999999
     ,dag=sparkifyPipeline
 )
 
