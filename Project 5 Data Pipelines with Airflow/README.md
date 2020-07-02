@@ -14,7 +14,7 @@ The data are entirely processed within an AWS Redshift database instance.
 
 The Airflow DAG ("Directed Acyclic Graph") created to coordinate these Tasks is shown below:
 
-![Sparkify DAG](<sparkifyPipelineDAG.png>)  
+![Sparkify DAG](./sparkifyPipelineDAG.png?raw=true "Sparkify DAG")  
   
 Notice `parallelization` also takes place to ensure faster data delivery and better organize logically-related ETL steps (parallelization requires an Airflow Executor other than `Local`).
 
