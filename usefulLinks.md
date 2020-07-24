@@ -213,6 +213,32 @@ CAP stands for "Consistency", "Availability" and "Partition Tolerance":
 * [](<>)  
 
 * [](<>)  
+
+## Final Project Research Materials  
+
+### AWS Resources  
+
+* [https://aws.amazon.com/glue/resources/](<>)  
+
+* [AWS Analytics Day Materials](<https://bit.ly/2WR5XDB>)  
+
+* [Calling AWS Lambda Functions from Apache Airflow](<https://www.astronomer.io/guides/lambda-cloud/>)  
+
+* [Apache Airflow vs AWS Glue](<https://www.astronomer.io/guides/airflow-vs-aws-glue/>)  
+
+* [](<>)  
+
+* [](<>)  
+
+* [](<>)  
+
+### Data Vault Modeling
+
+* [Data Vault and Apache Airflow](<https://gtoonstra.github.io/etl-with-airflow/datavault.html>)  
+
+* [](<>)  
+
+* [](<>)  
   
 ## General Materials
 
@@ -274,7 +300,9 @@ CAP stands for "Consistency", "Availability" and "Partition Tolerance":
 
 * [Writing a good README](<https://bulldogjob.com/news/449-how-to-write-a-good-readme-for-your-github-project>)  
 
-* [Beginners Guide to a Kickass README](<https://medium.com/@meakaakka/a-beginners-guide-to-writing-a-kickass-readme-7ac01da88ab3>)  
+* [Beginners Guide to a Kickass README](<https://medium.com/@meakaakka/a-beginners-guide-to-writing-a-kickass-readme-7ac01da88ab3>)
+
+* [ADD IMAGES TO GITHUB REPO](<http://jefclaes.be/2012/04/add-images-to-github-readme.html>)
 
 ### Docker
 
@@ -286,7 +314,8 @@ CAP stands for "Consistency", "Availability" and "Partition Tolerance":
 
 * [Lecture: Data Science Workflows using Docker Containers](<https://www.youtube.com/watch?v=oO8n3y23b6M>)
 
-* [](<>)
+* [](<>)  
+  
 
 ### Other
 
